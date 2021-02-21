@@ -1,0 +1,451 @@
+/* @font-face { 
+  font-family: "roboto";
+  font-weight: 400;
+  font-style: normal;
+  src: local("Roboto"),
+    url("../fonts/roboto.woff2") format("woff2"),
+    url("../fonts/roboto.woff") format("woff");
+
+
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  src: local("roboto"),
+    url("../fonts/robotomedium.woff") format("woff");
+
+  font-family: "Roboto";
+  font-weight: 500;
+  font-style: normal;
+  src: local("fonts/roboto"),
+    url("../fonts/robotoboldm.woff2") format("woff2"),
+    url("../fonts/robotbold.woff") format("woff");
+
+}
+*/
+
+/* это подключение для тренировки и проверки правильности написания. в html шрифты подключены с google.fonts */
+
+:root {
+  --basic-dark: #000000;
+  --basic-dark-10: rgba(0, 0, 0, 0.1);
+  --basic-dark-20: rgba(0, 0, 0, 0.2);
+  --basic-light: #FFFFFF;
+  --basic-light-30: rgba(255, 255, 255, 0.3);
+
+  /* grey colors */
+
+  --basic-grey: #EEEEEE;
+
+  --header-grey: #A6A6A6;
+
+  --text: #283136;
+
+  --text-footer: #444444;
+
+  --button-form-hover: #DFDFDF;
+  --button-form-click: #D5D5D5;
+
+  --switcher-active: #C1C1C1;
+
+  --pagin-stroke: #DBDBDB;
+
+  --shadow-click: rgba(0, 0, 0, 0.1);
+
+  --social: #E1E1E1;
+
+  --field: #D7DCDE;
+  --field-hover: #B4B9BB;
+
+  --checkbox: #4D4D4D;
+
+  --card-text: #666666;
+
+  --sorter-arrow: #231F20;
+
+  --toddler-dot: #ABABAB;
+  --toddler-line-back: #D7DCDF;
+
+  /* other colors */
+
+  --toddler-line-front: #00CA74;
+
+  --accent: #FB565A;
+  --accent-hover: #E74246;
+  --accent-click: #D7373B;
+  --button-social: #E1E1E1;
+
+  --accent2: #00CA74;
+  --accent2-hover: #00BC6C;
+  --accent2-click: #00AA62;
+
+  --accent3: #EFC849;
+  --accent3-hover: #EAB534;
+  --accent3-click: #E5A722;
+
+}
+
+/* свойство прозрачности бы к цветам приделывать, чтобы не плодить кучу цветов из-за нее. не пойму, как реализовать
+opacity: 0.6;
+opacity: 0.3;
+opacity: 0.4;
+opacity: 0.1;
+opacity: 0.12; 
+opacity: 0, 0, 0, 0.0001;
+ */
+
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.body-text {
+  min-width: 960px;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.main-header {
+  background-color: var(--basic-grey);
+}
+
+.main-logo {
+  color: var(--basic-dark);
+}
+
+.main-logo:focus {
+  color: var(--logo-click);
+}
+
+.main-nav a {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+.main-nav a:focus {
+  color: var(--basic-dark);
+  opacity: 0.3;
+}
+
+/* .main-nav a:active {
+
+  как приделать линию внизу,
+  позиционировть точно:
+    color: var(--accent);
+}
+ */
+
+
+/* .nav-list { 
+
+}
+
+.nav-item {
+  
+}
+
+/* нужны ли эти классы? 
+
+.nav-basket {
+  /* навесить иконку 
+}*/
+
+.invisible {
+  visibility: hidden;
+}
+
+/* .container {} */
+
+/* как центровать? */
+
+/* убрать визуал кнопки, навесить кружки - как?
+.switch-slider {
+    ???? width: 18px;
+     height: 18px;
+     background: --basic-light;
+}
+.switch-slider:active {
+     width: 8px;
+     height: 8px;
+     border: 2px solid var(--switcher-active);
+/* как наложить это сверху, а не заменить? +классы? 
+} */
+
+
+.advantage-slider {
+  background-color: var(--basic-grey);
+}
+
+.advantage-title {
+  font-weight: 500;
+  font-size: 55px;
+  line-height: 55px;
+  var (--basic-dark);
+}
+
+
+.button {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  color: var(--basic-light);
+  background-color: var(--accent);
+  width: 240px;
+  height: 50px;
+  border: none;
+  border-radius: 3px;
+
+/*кнопка после нажатия залипает на состоянии фокуса. приходит в себя только по клику на пустое место. как сделать по умолчанию?  */
+  /* плашка 240x50 под текст - почему не работает размер?
+   */
+}
+
+.button:hover {
+  background-color: var(--accent-hover);
+}
+
+.button:focus {
+  color: var(--basic-light-30);
+  /* можно ли как-то сделать цвет --basic-light: #FFFFFF; с присвоением opacity 0.3??*/
+  background-color: var(--accent-click);
+  box-shadow: inset 0px 3px 0px var(--shadow-click);
+  /* аналогично и тут, процент к черному, чтоб не плодить кучу цветов с прозрачностями
+      }*/
+}
+
+/* .button-contacts { 
+     width: 219px;
+     height: 50px;
+}
+
+.button-contacts:hover {
+     
+}
+
+.button-contacts:focus {
+
+     изменяется только ширина кнопки (не получается только). тогда ховер и фокус не нужны? они как в button будут?
+      
+}*/
+
+.service-button {
+  background-color: var(--accent);
+  /*  width: 160px;
+    height: 50px; как изменить размер??? может с помощью полей по ширине текста?*/
+
+}
+
+.service-app-button {
+  background-color: var(--accent2);
+}
+
+.service-pres-button {
+  background-color: var(--accent3);
+}
+
+/* каскад еле распутала - проследить логику каскада еще раз! */
+
+
+.service-app-button:hover {
+  background-color: var(--accent2-hover);
+}
+
+.service-pres-button:hover {
+  background-color: var(--accent3-hover);
+}
+
+.service-app-button:focus {
+  background-color: var(--accent2-click);
+}
+
+.service-pres-button:focus {
+  background-color: var(--accent3-click);
+}
+
+.servise-title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: uppercase;
+  var(--basic-dark);
+}
+
+/* .service {}
+
+  .service-list {}
+
+  .service-item {}
+
+  .service-image {}
+
+
+ .about {
+
+ } */
+
+.about-title {
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 45px;
+  var(--basic-dark);
+}
+
+
+.about-list-title {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+/* =main-nav */
+
+/* .about-list { 
+cделать буллитом линию плюс пробел - как учесть расстояния внутри бокса до текста в ФИгме?? бокс же не в притык к тексту!!!
+  width: 25px;
+height: 2px;
+цвет линии: var(--accent); 
+}
+*/
+
+
+/* .about-logo-color {} */
+
+.about-list-title-center {
+  text-align: center;
+}
+
+
+/* .progress {} 
+
+.progress-list {
+
+}*/
+
+.progress-item {
+  line-height: 18px;
+}
+
+.progresss-dig {
+  font-size: 45px;
+  line-height: 64px;
+  font-weight: 500;
+  color: var(--basic-dark);
+}
+
+
+/* .partners {
+
+  }
+  
+  .partners-list {
+
+}
+
+.partners-item {
+    }
+ */
+
+.htmlacademy-logo {
+  color: var(--basic-dark-20);
+}
+
+.htmlacademy-logo:hover {
+  color: var(--basic-dark);
+}
+
+.htmlacademy-logo:focus {
+  color: var(--basic-dark-10);
+}
+
+/* почему не срабатывает смена цвета? в лого сайта срабатывало */
+
+/* 
+ .partners-item a{
+
+}
+только один лого векторый, другим надо иначе делать hover и focus - другие классы? */
+
+
+/* .main-footer {}
+
+.location {}
+
+.map {}
+
+.map-marker {}
+ */
+
+.contacts {
+     color: var(--card-text);
+     background-color: var(--basic-light);
+     font-style: normal;
+}
+
+.contacts-title {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--basic-dark);
+}
+
+.contacts-text {
+    line-height: 18px;
+ }
+
+.contacts-tel {
+     color: inherit;
+}
+
+.social-list a{
+     color: var(--social);  
+}
+
+/* .social-item{/
+     
+}
+
+.social-button {
+
+} */
+
+/* как убрать названия и повесить иконки */
+
+.social-header {
+     font-size: 36px;
+     line-height: 36px;
+     font-weight: 500;
+     color: var(--basic-dark);
+}
+
+.social-text {
+     line-height: 22px;
+  color: var(--text-footer);
+}
