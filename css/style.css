@@ -345,16 +345,16 @@ height: 2px;
 }
 
 .partners-list img {
-  opaсity: 0.2;
+  opacity: 0.2;
 }
 
 .partners-list img:hover,
 .partners-list img:focus {
-  opaсity: 1;
+  opacity: 1;
 }
 
 .partners-list img:active {
-  opaсity: 0.1;
+  opacity: 0.1;
 }
 /* не срабатывает */
 
