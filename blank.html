@@ -8,46 +8,47 @@
   <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/favicon/apple.png">
   <link rel="manifest" href="manifest.webmanifest">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="page-body">
 
   <header class="main-header">
+    <a class="main-logo" href="index.html">
+      <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
+    </a>
     <nav class="main-nav">
-      <!--серая подложка-->
-
-      <a class="main-nav-logo" href="index.html">
-        <!-- в нашем случае нужно ли задавать класс постоянному везде логотипу? -->
-        <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
-      </a>
-
-      <ul class="site-nav">
-        <li>
+      <ul class="nav-list">
+        <li class="nav-item">
           <a href="blank.html">Студия</a>
         </li>
-        <li>
-          <a href="blank.html">Клиенты</a>
+        <li class="nav-item">
+          <a class="nav" href="blank.html">Клиенты</a>
         </li>
-        <li>
+        <li class="nav-item">
           <a href="catalog.html">Магазин</a>
         </li>
-        <li>
+        <li class="nav-item">
           <a href="blank.html">Контакты</a>
         </li>
       </ul>
-     <a class="nav-basket" href="blank.html">Корзина</a>
+
+      <a class="nav-basket" href="blank.html">Корзина</a>
     </nav>
   </header>
 
   <footer class="main-footer">
-    <h2>Контактная информация</h2>
-    <!--скрыть h2-->
+    <h2 class="visually-hidden">Контактная информация</h2>
 
     <section class="location">
       <img class="map" src="img/map.jpg" width="1440" height="416" alt="На карте города">
       <img class="map=marker" src="img/map-marker.png" width="231" height="190" alt="местонахождение студии">
       <address class="contacts">
-        <p class="about-list-header-center contacts-header">NЁRDS DESIGN STUDIO</p>
+        <p class="contacts-title">NЁRDS DESIGN STUDIO</p>
         <p class="contacts-text">191186, Санкт-Петербург,<br>ул. Б. Конюшенная, д. 19/8</p>
         <p>тел.<a class="contacts-tel" href="tel:+78122757575">+7 (812) 275-75-75</a></p>
         <button class="button button-contacts" type="button">Напишите нам</button>
@@ -55,23 +56,22 @@
     </section>
 
     <section class="social">
-      <h3>Соцсети</h3>
-      <!--скрыть h3-->
+      <h3 class="visually-hidden">Соцсети</h3>
       <ul class="social-list">
         <li class="social-item">
-          <a class="social-button" href="#">Вконтакте</a>
+          <a href="#">Вконтакте</a>
         </li>
-        <li>
-          <a class="social-button" href="#">Фейсбук</a>
+        <li class="social-item">
+          <a href="#">Фейсбук</a>
         </li>
-        <li>
-          <a class="social-button" href="#">Инстаграм</a>
+        <li class="social-item">
+          <a href="#">Инстаграм</a>
         </li>
       </ul>
     </section>
-      <!-- декоративные иконки соцсетей -->
-      <p class="social-header">Давайте дружить, это выгодно!</p>
-      <p class="social-text">Скидка 10% для друзей из социальных сетей.</p>
+    <!-- декоративные иконки соцсетей вместо названий-->
+    <p class="social-header">Давайте дружить, это выгодно!</p>
+    <p class="social-text">Скидка 10% для друзей из социальных сетей.</p>
     </section>
 
   </footer>

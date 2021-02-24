@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class="page" lang="ru">
 
 <head>
   <meta charset="utf-8">
@@ -8,32 +8,35 @@
   <link rel="icon" href="img/favicon/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/favicon/apple.png">
   <link rel="manifest" href="manifest.webmanifest">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="body-text">
+<body class="page-body">
 
   <header class="main-header">
     <a class="main-logo" href="index.html">
       <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
     </a>
-
     <nav class="main-nav">
-      <!--серая подложка-->
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="button button-" href="blank.html">Студия</a>
+          <a href="blank.html">Студия</a>
         </li>
         <li class="nav-item">
-          <a href="blank.html">Клиенты</a>
+          <a class="nav" href="blank.html">Клиенты</a>
         </li>
         <li class="nav-item">
-          <a href="">Магазин</a>
-          <!-- текущее местоположение надо выделять в стилях? -->
+          <a href="catalog.html">Магазин</a>
         </li>
         <li class="nav-item">
           <a href="blank.html">Контакты</a>
         </li>
       </ul>
+
       <a class="nav-basket" href="blank.html">Корзина</a>
     </nav>
   </header>
@@ -42,8 +45,6 @@
 
     <!--продолжение серой подложки-->
     <h1 class="page-header">Магазин готовых шаблонов</h1>
-    <!--заголовок иденетичен h3 class="advantage-header" c index... только ц ентральная выключка... может там и тут сделать h1 им обоим? -->
-
     <form class="catalog-form" action="https://echo.htmlacademy.ru" method="get">
       <h2>Фильтры по критериям</h2>
       <!-- скрыть h2 -->
@@ -184,43 +185,37 @@
   </main>
 
 
-  <footer class="footer">
-    <h2>Контактная информация</h2>
-    <!--скрыть h2-->
+  <footer class="main-footer">
+    <h2 class="visually-hidden">Контактная информация</h2>
 
     <section class="location">
       <img class="map" src="img/map.jpg" width="1440" height="416" alt="На карте города">
       <img class="map=marker" src="img/map-marker.png" width="231" height="190" alt="местонахождение студии">
       <address class="contacts">
-        <p class="about-list-header-center contacts-header">NЁRDS DESIGN STUDIO</p>
-        <!-- это about-list-header-center плюс другой цвет и итерлиньяж. указывать ли здесь его предка и его с только этими ихмененными хар-ми или в css это каскадом апсиать и здесь только один класс нужен?-->
+        <p class="contacts-title">NЁRDS DESIGN STUDIO</p>
         <p class="contacts-text">191186, Санкт-Петербург,<br>ул. Б. Конюшенная, д. 19/8</p>
-        <!-- это body-text, отличающийся только цветом... так класс делать? -->
         <p>тел.<a class="contacts-tel" href="tel:+78122757575">+7 (812) 275-75-75</a></p>
         <button class="button button-contacts" type="button">Напишите нам</button>
-        <!-- надо писать два класса тут или в css каскаде все, а тут только button-contacts нужно? ] -->
       </address>
     </section>
 
     <section class="social">
-      <h3>Соцсети</h3>
-      <!--скрыть h3-->
+      <h3 class="visually-hidden">Соцсети</h3>
       <ul class="social-list">
         <li class="social-item">
-          <a class="social-button" href="#">Вконтакте</a>
+          <a href="#">Вконтакте</a>
         </li>
-        <li>
-          <a class="social-button" href="#">Фейсбук</a>
+        <li class="social-item">
+          <a href="#">Фейсбук</a>
         </li>
-        <li>
-          <a class="social-button" href="#">Инстаграм</a>
+        <li class="social-item">
+          <a href="#">Инстаграм</a>
         </li>
       </ul>
     </section>
-      <!-- декоративные иконки соцсетей -->
-      <p class="social-header">Давайте дружить, это выгодно!</p>
-      <p class="social-text">Скидка 10% для друзей из социальных сетей.</p>
-      <!-- это = body-text с еще одним, на глаз неразличимым(!), оттенком серого и инт-м 10! (что при кегле 16 вообще странно). делаем одтельный стиль? куча стилей почти идентичных...' -->
+    <!-- декоративные иконки соцсетей вместо названий-->
+    <p class="social-header">Давайте дружить, это выгодно!</p>
+    <p class="social-text">Скидка 10% для друзей из социальных сетей.</p>
     </section>
 
   </footer>
