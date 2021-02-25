@@ -30,7 +30,7 @@
           <a class="nav" href="blank.html">Клиенты</a>
         </li>
         <li class="nav-item">
-          <a href="catalog.html">Магазин</a>
+          <a class="nav-item-current" href="catalog.html">Магазин</a>
         </li>
         <li class="nav-item">
           <a href="blank.html">Контакты</a>
@@ -43,20 +43,20 @@
 
   <main class="container">
 
-    <!--продолжение серой подложки-->
-    <h1 class="page-header">Магазин готовых шаблонов</h1>
+    <h1 class="page-title">Магазин готовых шаблонов</h1>
+
     <form class="catalog-form" action="https://echo.htmlacademy.ru" method="get">
-      <h2>Фильтры по критериям</h2>
-      <!-- скрыть h2 -->
-      <fieldset>
+      <h2 class="visually-hidden">Фильтры по критериям</h2>
+
+      <fieldset class="field-of-toddler">
         <legend>Стоимость:</legend>
-        <label>от <input type="text" value="0"></label>
-        <label>до <input type="text" value="15 000"></label>
+        <label>от <input class="field" type="text" value="0"></label>
+        <label>до <input class="field" type="text" value="15 000"></label>
         <!-- будет ползунок -->
       </fieldset>
       <fieldset>
         <legend>Сетка:</legend>
-        <ul>
+        <ul class="radiobutton">
           <li><label><input type="radio" name="filter-grid" value="adaptive-grid" checked>Адаптивная</label></li>
           <li><label><input type="radio" name="filter-grid" value="fixed-grid">Фиксированная</label></li>
           <li><label><input type="radio" name="filter-grid" value="rubber-grid">Резиновая</label></li>
@@ -64,7 +64,7 @@
       </fieldset>
       <fieldset>
         <legend>Особенности:</legend>
-        <ul>
+        <ul class="checkbox">
           <li><label><input type="checkbox" name="filter-feature" value="slider-feature" checked>Слайдер</label></li>
           <li><label><input type="checkbox" name="filter-feature" value="advantages-feature">Блок преимуществ</label>
           </li>
@@ -73,111 +73,111 @@
           <li> <label><input type="checkbox" name="filter-feature" value="basket-feature">Корзина</label></li>
         </ul>
       </fieldset>
-      <button type="submit">ПОКАЗАТЬ</button>
+      <button class="button button-soft" type="submit">ПОКАЗАТЬ</button>
     </form>
 
-    <section>
-      <h2>Сортировка выбранного</h2>
-      <!-- скрыть h2 -->
+    <section class="catalog-sorter">
+      <h2 class="visually-hidden">Сортировка выбранного</h2>
       <fieldset>
         <legend>Сортировать:</legend>
-        <ul>
+        <ul class="sorter-type-list">
           <li><button type="button">По цене</button></li>
           <li><button type="button">По типу</button></li>
           <li><button type="button">По названию</button></li>
+        </ul>
+        <ul class="sorter-arrange-list">
           <li> <button type="button">по убыванию</button></li>
           <li><button type="button">по возрастанию</button></li>
         </ul>
-
       </fieldset>
     </section>
 
     <section>
-      <h2>Каталог</h2>
-      <!-- скрыть h2 -->
+      <h2 class="visually-hidden">Каталог</h2>
 
-      <ul>
+      <ul class="product-card-list">
 
-        <li>
-          <!-- декоративная плашка карточки активная -->
+        <li class="product-card-item">
+          <!-- плашка карточки активная 
+            class="product-card-top-spot"-->
           <img src="img/card/card-sedona.jpg" width="358" height="578" alt="Главная страница сайта «Седона»">
-          <div>
+          <div class="product-card-info">
             <!-- блок появляется при наведении/выборе -->
-            <!-- плашка под инфу о товаре -->
+            <!-- плашка под инфу о товаре-->
             <h3><a href="blank.html">Sedona</a></h3>
             <p>Информационный сайт<br>для туристов</p>
-            <button type="button">9 900 <span>₽</span></button>
+            <button class="button" type="button">9 900 <span>₽</span></button>
           </div>
         </li>
 
-        <li>
-          <!-- декоративная плашка карточки неактивная -->
+        <li class="product-card-item">
+          <!-- плашка карточки неактивная -->
           <img src="img/card/card-pink.jpg" width="358" height="578" alt="«Главная страница приложения «Pink»">
-          <div>
+          <div class="product-card-info">
             <!-- это скрыто на макете -->
             <!-- плашка под инфу о товаре -->
             <h3><a href="blank.html">Pink App</a></h3>
             <p>Продуктовый лендинг<br>приложения для iOS и Android</p>
-            <button type="button">9 900 <span>₽</span></button>
+            <button class="button" type="button">9 900 <span>₽</span></button>
           </div>
         </li>
 
-        <li>
+        <li class="product-card-item">
           <!-- декоративная плашка карточки неактивная -->
           <img src="img/card/card-barbershop.jpg" width="358" height="578"
             alt="Главная страница сайта «Барбершоп «Бородинский»">
-          <div>
+          <div class="product-card-info">
             <!-- это скрыто на макете -->
             <!-- плашка под инфу о товаре -->
             <h3><a href="blank.html">Barbershop</a></h3>
             <p>Сайт салона красоты.<br>Для мужчин, да.</p>
-            <button type="button">9 900 <span>₽</span></button>
+            <button class="button" type="button">9 900 <span>₽</span></button>
           </div>
         </li>
 
-        <li>
+        <li class="product-card-item">
           <!-- декоративная плашка карточки неактивная -->
           <img src="img/card/card-mishka.jpg" width="358" height="578" alt="Главная страница сайта «Мишка»">
-          <div>
+          <div class="product-card-info">
             <!-- это скрыто на макете -->
             <!-- плашка под инфу о товаре -->
             <h3><a href="blank.html">MISHKA</a></h3>
             <p>Интернет-магазин<br>вязаных игрушек</p>
-            <button type="button">9 900 <span>₽</span></button>
+            <button class="button" type="button">9 900 <span>₽</span></button>
           </div>
         </li>
 
-        <li>
+        <li class="product-card-item">
           <!-- декоративная плашка карточки неактивная -->
           <img src="img/card/card-aplus.jpg" width="358" height="578" alt="Главная страница лендинга «A Plus»">
-          <div>
+          <div class="product-card-info">
             <!-- это скрыто на макете -->
             <!-- плашка под инфу о товаре -->
             <h3><a href="blank.html">A PLUS</a></h3>
             <p>Лендинг курсов повышения<br>квалификации</p>
-            <button type="button">9 900 <span>₽</span></button>
+            <button class="button" type="button">9 900 <span>₽</span></button>
           </div>
         </li>
 
-        <li>
+        <li class="product-card-item">
           <!-- декоративная плашка карточки неактивная -->
           <img src="img/card/card-kvast.jpg" width="358" height="578" alt="Главная страница сайта «Кваст»">
-          <div>
+          <div class="product-card-info">
             <!-- это скрыто на макете -->
             <!-- плашка под инфу о товаре -->
             <h3><a href="blank.html">КВАСТ</a></h3>
             <p>Промо-сайт производителя<br>крафтового кваса</p>
-            <button type="button">9 900 <span>₽</span></button>
+            <button class="button" type="button">9 900 <span>₽</span></button>
           </div>
         </li>
 
       </ul>
 
-      <ul>
-        <li><a>1</a></li>
-        <li><a href="">2</a></li>
-        <li><a href="">3</a></li>
-        <li><a href="">Следующая</a></li>
+      <ul class="catalog-pagination-list">
+        <li><a class="button button-soft button-pag button-pag-current">1</a></li>
+        <li><a class="button button-soft button-pag" href="">2</a></li>
+        <li><a class="button button-soft button-pag" href="">3</a></li>
+        <li><a class="button button-soft button-pag" href="">Следующая</a></li>
       </ul>
 
     </section>
@@ -216,7 +216,6 @@
     <!-- декоративные иконки соцсетей вместо названий-->
     <p class="social-header">Давайте дружить, это выгодно!</p>
     <p class="social-text">Скидка 10% для друзей из социальных сетей.</p>
-    </section>
 
   </footer>
 

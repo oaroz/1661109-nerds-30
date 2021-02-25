@@ -29,8 +29,10 @@
 
 :root {
   --basic-dark: #000000;
+  --basic-dark-0001: rgba(0, 0, 0, 0.0001);
   --basic-dark-10: rgba(0, 0, 0, 0.1);
   --basic-dark-20: rgba(0, 0, 0, 0.2);
+  --basic-dark-30: rgba(0, 0, 0, 0.3);
   --basic-light: #FFFFFF;
   --basic-light-30: rgba(255, 255, 255, 0.3);
 
@@ -38,16 +40,16 @@
 
   --basic-grey: #EEEEEE;
 
-  --header-grey: #A6A6A6;
-
   --text: #283136;
 
   --text-footer: #444444;
 
-  --button-form-hover: #DFDFDF;
-  --button-form-click: #D5D5D5;
+  --arrange-button-hover: #A6A6A6;
 
-  --switcher-active: #C1C1C1;
+  --button-soft-hover: #DFDFDF;
+  --button-soft-click: #D5D5D5;
+
+  --stitcher-active: #C1C1C1;
 
   --pagin-stroke: #DBDBDB;
 
@@ -60,7 +62,7 @@
 
   --card-text: #666666;
 
-  --sorter-arrow: #231F20;
+  --sorter-arrange: #231F20;
 
   --toddler-dot: #ABABAB;
   --toddler-line-back: #D7DCDF;
@@ -72,24 +74,19 @@
   --accent: #FB565A;
   --accent-hover: #E74246;
   --accent-click: #D7373B;
-  --button-social: #E1E1E1;
 
-  --accent2: #00CA74;
-  --accent2-hover: #00BC6C;
-  --accent2-click: #00AA62;
+  --accent-app: #00CA74;
+  --accent-app-hover: #00BC6C;
+  --accent-app-click: #00AA62;
 
-  --accent3: #EFC849;
-  --accent3-hover: #EAB534;
-  --accent3-click: #E5A722;
+  --accent-pres: #EFC849;
+  --accent-pres-hover: #EAB534;
+  --accent-pres-click: #E5A722;
 
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+/* index */
 
-/* это нарушение доп критерия. */
 
 .page-body {
   min-width: 960px;
@@ -103,6 +100,11 @@ img {
   color: var(--text);
 }
 
+.page-body img {
+  max-width: 100%;
+  height: auto;
+}
+
 .main-header {
   background-color: var(--basic-grey);
 }
@@ -113,7 +115,7 @@ img {
 }
 
 .main-logo:active {
-     opacity: 0.3;
+  opacity: 0.3;
 }
 
 .main-nav a {
@@ -135,9 +137,14 @@ img {
   opacity: 0.3;
 }
 
-/* .main-nav-active {
+/* .nav-item-current {
   линия внизу
   color: var(--accent);
+  сделать некликабельной - НЕ как ссылку? 
+  тогда продублировать на этот класс класс ссылки.
+  ИЛИ кликабельной. но все состояния этого класса сделать = состоянию покоя
+  и ссылаться на саму себя
+  перекроет этот класс класс .main-nav a, будучи ссылкой?
 }*/
 
 .nav-list {
@@ -149,7 +156,6 @@ img {
  навесить иконку 
 }*/
 
-*/
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -175,6 +181,7 @@ img {
 } добавляется сверху по клику 
 */
 
+
 .advantage-list {
   list-style: none;
   padding: 0;
@@ -188,7 +195,7 @@ img {
   font-weight: 500;
   font-size: 55px;
   line-height: 55px;
-  var (--basic-dark);
+  color: var (--basic-dark);
 }
 
 .button {
@@ -227,33 +234,33 @@ img {
 }
 
 .service-app-button {
-  background-color: var(--accent2);
+  background-color: var(--accent-app);
 }
 
 .service-pres-button {
-  background-color: var(--accent3);
+  background-color: var(--accent-pres);
 }
 
 .service-app-button:hover,
 .service-app-button:focus {
-  background-color: var(--accent2-hover);
+  background-color: var(--accent-app-hover);
 }
 
 .service-pres-button:hover,
 .service-pres-button:focus {
-  background-color: var(--accent3-hover);
+  background-color: var(--accent-pres-hover);
 }
 
 .service-app-button:active {
-  background-color: var(--accent2-click);
+  background-color: var(--accent-app-click);
 }
 
 .service-pres-button:active {
-  background-color: var(--accent3-click);
+  background-color: var(--accent-pres-click);
 }
 
-.servise-item h3 {
-  font-weight: 500;
+.service-item h3 {
+  font-weight: 700;
   font-size: 24px;
   line-height: 30px;
   text-transform: uppercase;
@@ -278,20 +285,22 @@ img {
 }
 
 .about-us h3 {
+  font-weight: 500;
   font-size: 45px;
   line-height: 45px;
-  font-weight: 500;
   color: var(--basic-dark);
 }
 
 
-.about-us h4,
-.about-progress h4 {
+.about h4 {
+  font-weight: 700;
   font-size: 16px;
   line-height: 30px;
-  font-weight: 500;
   text-transform: uppercase;
-  color: var(--text);
+}
+
+.about-progress h4 {
+  color: var(--basic-dark);
 }
 
 
@@ -323,9 +332,9 @@ height: 2px;
 }
 
 .about-progresss-dig {
+  font-weight: 700;
   font-size: 45px;
   line-height: 64px;
-  font-weight: 500;
   color: var(--basic-dark);
 }
 
@@ -356,7 +365,6 @@ height: 2px;
 .partners-list img:active {
   opacity: 0.1;
 }
-/* не срабатывает */
 
 /* .main-footer {}
 .location {}
@@ -371,9 +379,9 @@ height: 2px;
 }
 
 .contacts-title {
+  font-weight: 700;
   font-size: 18px;
   line-height: 30px;
-  font-weight: 500;
   text-transform: uppercase;
   color: var(--basic-dark);
 }
@@ -398,16 +406,251 @@ height: 2px;
   color: var(--social);
 }
 
+/* .social-item a:hover,
+.social-item a:focus
+.social-item a:active
+= состояниям акцентной кнопки. иконики=текст + фон*/
 /*  убрать названия и повесить иконки */
 
 .social-header {
+  font-weight: 700;
   font-size: 36px;
   line-height: 36px;
-  font-weight: 500;
   color: var(--basic-dark);
 }
 
 .social-text {
   line-height: 22px;
   color: var(--text-footer);
+}
+
+
+/* catalog */
+
+.page-title {
+  font-weight: 500;
+  font-size: 55px;
+  line-height: 55px;
+  color: var (--basic-dark);
+  background-color: var(--basic-grey);
+}
+
+/* .catalog-form {} */
+/* .catalog-form fieldset{} */
+
+.field-of-toddler input {
+  background-color: var(--basic-grey);
+}
+
+.field-of-toddler label {
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.catalog-form legend,
+.catalog-sort legend {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: var(--basic-dark);
+}
+
+.catalog-form label {
+  line-height: 20px;
+}
+
+.radiobutton input {
+  color: var(--checkbox);
+  opacity: 0.4;
+}
+
+.radiobutton input:hover,
+.radiobutton input:focus,
+.radiobutton input:active {
+  opacity: 1;
+}
+
+.radiobutton input:disabled {
+  opacity: 0.1;
+}
+
+.checkbox input {
+  color: var(--checkbox);
+  opacity: 0.4;
+}
+
+/* пробел между иконкой и текстом - отступом наверное. позже. */
+/* у чекбоксов другие состояния: клик = [выбор;снятие выбора] 
+в 2 раза больше? с галокой все состо\яния и без галочки все состояния? обдумать
+.checkbox input:hover,
+.checkbox input:focus,
+.checkbox input:active
+
+.checkbox input:disabled
+*/
+
+
+.catalog-form ul,
+.catalog-sorter ul {
+  list-style: none;
+}
+
+.button-soft {
+  background-color: var(--basic-grey);
+  color: var(--basic-dark);
+}
+
+.button-soft:hover,
+.button-soft:focus {
+  background-color: var(--button-soft-hover);
+  color: var(--basic-dark);
+}
+
+.button-soft:active {
+  color: var(--basic-dark-30);
+  background-color: var(--button-soft-click);
+  color: var(--basic-dark-30);
+}
+
+
+.sorter-type button {
+  /* убрать вид кнопки */
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: var(--basic-dark);
+  opacity: 0.3;
+}
+
+.sorter-type-list button:hover,
+.sorter-type-list button:focus {
+  opacity: 0.6;
+}
+
+.sorter-type-list button:active {
+  opacity: 1;
+}
+
+/* cостояние активного пункта=active? 
+если нет и псевдокласса нет,
+надо класс? тогда вложенность будет тройной, 
+надо делать отдельный класс на эту кнопку.
+как это состояние будет присвоено? */
+
+.sorter-arrange-list button {
+  color: var(--sorter-arrange);
+}
+
+.sorter-arrange-list button:hover,
+.sorter-arrange-list button:focus {
+  color: var(--arrange-button-hover);
+}
+
+.sorter-arrange-list button:active {
+  color: var(--arrange-button-hover);
+  opacity: 0.2;
+}
+
+/*форма треугольника, свг-картинки */
+/* cостояние активного пункта=active? */
+
+
+.product-card-list {
+  list-style: none;
+}
+
+/* .product-card-item */
+/* .product-card-item img */
+
+
+.product-card-top-spot {
+  /* var(--checkbox); */
+  opacity: 0.12;
+}
+
+.product-card-list img {
+  background-color: var(--basic-grey);
+}
+
+/* для целостости карточки, если не загружается картинка */
+
+.product-card-info {
+  background-color: var(--basic-grey);
+  text-align: center;
+  /* opacity: 0; */
+  /*или visible: hidden */
+}
+
+/* .product-card-item:hover .product-card-top-spot,
+.product-card-item:focus .product-card-top-spot,
+.product-card-item:active .product-card-top-spot {
+  opacity: 1;
+}
+
+.product-card-item:hover .product-card-info,
+.product-card-item:focus .product-card-info,
+.product-card-item:active .product-card-info {
+  opacity: 1;
+}
+
+видимо,это не работает, как хотелось бы 
+(по наведению на  карту открывается информация,
+открывается тлько по наведению на информацию)
+ */
+
+.product-card-info a {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--basic-dark);
+}
+
+.product-card-info a:hover,
+.product-card-info a:focus {
+  color: var(--accent);
+}
+
+.product-card-info a:active {
+  color: var(--basic-dark);
+  opacity: 0.3;
+}
+
+.product-card-info p {
+  line-height: 18px;
+  color: var(--card-text);
+}
+
+/* .product-card-info button {} - 
+ширина здесь будет постоянна, независимо от длинны текста
+width: 200px;height: 50px;*/
+
+.catalog-pagination-list {
+  list-style: none;
+}
+
+.catalog-pagination-list a {
+  list-style: none;
+  text-decoration: none;
+}
+
+/* .catalog-pagination-list .button-soft { 
+ остступы другие, ширина кнопки:
+  width: 260px; height: 50px;}
+*/
+
+/* .button-pag { 
+ размеры фиксированные width: 50px; height: 50px;
+}*/
+
+.button-pag-current,
+.button-pag-current:hover,
+.button-pag-current:focus,
+.button-pag-current:active {
+  background-color: var(--basic-dark-0001);
+  color: var(--basic-dark);
+  border: 3px solid var(--pagin-stroke);
+  box-shadow: none;
 }
