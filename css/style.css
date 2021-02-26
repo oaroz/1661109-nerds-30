@@ -438,8 +438,22 @@ height: 2px;
 /* .catalog-form {} */
 /* .catalog-form fieldset{} */
 
-.field-of-toddler input {
+.catalog-form fieldset,
+.catalog-sorter fieldset {
+  border: none;
+  margin: none;
+  padding: none;
+}
+
+.field-of-toddler input,
+.field-of-toddler input:hover,
+.field-of-toddler input:focus,
+.field-of-toddler input:active {
   background-color: var(--basic-grey);
+  border: none;
+  outline: none;
+  margin: none;
+  box-shadow: inset 0px;
 }
 
 .field-of-toddler label {
@@ -480,7 +494,8 @@ height: 2px;
   opacity: 0.4;
 }
 
-/* пробел между иконкой и текстом - отступом наверное. позже. */
+/* отбивка между иконкой и текстом - отступом, пробелом? */
+
 /* у чекбоксов другие состояния: клик = [выбор;снятие выбора] 
 в 2 раза больше? с галокой все состо\яния и без галочки все состояния? обдумать
 .checkbox input:hover,
@@ -494,7 +509,9 @@ height: 2px;
 .catalog-form ul,
 .catalog-sorter ul {
   list-style: none;
-}
+  margin: 0;
+  padding: 0;
+  }
 
 .button-soft {
   background-color: var(--basic-grey);
@@ -514,13 +531,17 @@ height: 2px;
 }
 
 
-.sorter-type button {
+.sorter-type-list button {
   /* убрать вид кнопки */
   font-size: 14px;
   line-height: 18px;
   text-transform: uppercase;
   color: var(--basic-dark);
   opacity: 0.3;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: none;
 }
 
 .sorter-type-list button:hover,
@@ -532,6 +553,7 @@ height: 2px;
   opacity: 1;
 }
 
+
 /* cостояние активного пункта=active? 
 если нет и псевдокласса нет,
 надо класс? тогда вложенность будет тройной, 
@@ -540,6 +562,10 @@ height: 2px;
 
 .sorter-arrange-list button {
   color: var(--sorter-arrange);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: none;
 }
 
 .sorter-arrange-list button:hover,
