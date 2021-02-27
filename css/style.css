@@ -140,11 +140,11 @@
 /* .nav-item-current {
   линия внизу
   color: var(--accent);
-  сделать некликабельной - НЕ как ссылку? 
+  1. сделать некликабельной - НЕ как ссылку-  
   тогда продублировать на этот класс класс ссылки.
-  ИЛИ кликабельной. но все состояния этого класса сделать = состоянию покоя
+  2. ИЛИ кликабельной. но все состояния этого класса сделать = состоянию покоя
   и ссылаться на саму себя
-  перекроет этот класс класс .main-nav a, будучи ссылкой?
+  проверить, перекроет этот класс класс .main-nav a, будучи ссылкой?
 }*/
 
 .nav-list {
@@ -195,7 +195,7 @@
   font-weight: 500;
   font-size: 55px;
   line-height: 55px;
-  color: var (--basic-dark);
+  color: var(--basic-dark);
 }
 
 .button {
@@ -441,8 +441,8 @@ height: 2px;
 .catalog-form fieldset,
 .catalog-sorter fieldset {
   border: none;
-  margin: none;
-  padding: none;
+  margin: 0;
+  padding: 0;
 }
 
 .field-of-toddler input,
@@ -452,7 +452,7 @@ height: 2px;
   background-color: var(--basic-grey);
   border: none;
   outline: none;
-  margin: none;
+  margin: 0;
   box-shadow: inset 0px;
 }
 
@@ -462,7 +462,7 @@ height: 2px;
 }
 
 .catalog-form legend,
-.catalog-sort legend {
+.catalog-sorter legend {
   font-weight: 700;
   font-size: 18px;
   line-height: 30px;
@@ -496,13 +496,14 @@ height: 2px;
 
 /* отбивка между иконкой и текстом - отступом, пробелом? */
 
-/* у чекбоксов другие состояния: клик = [выбор;снятие выбора] 
-в 2 раза больше? с галокой все состо\яния и без галочки все состояния? обдумать
+/* РАЗОБРАТЬСЯ ПОТОМ: у чекбоксов другие состояния: клик = [выбор;снятие выбора]  c checked
+в 2 раза больше? с галкой все состо\яния и без галочки все состояния? обдумать
 .checkbox input:hover,
 .checkbox input:focus,
 .checkbox input:active
 
-.checkbox input:disabled
+.checkbox input:checked
+.checkbox input:disabled - эти два состояния присваиваются js?
 */
 
 
@@ -525,7 +526,6 @@ height: 2px;
 }
 
 .button-soft:active {
-  color: var(--basic-dark-30);
   background-color: var(--button-soft-click);
   color: var(--basic-dark-30);
 }
@@ -541,7 +541,7 @@ height: 2px;
   background-color: transparent;
   border: none;
   outline: none;
-  margin: none;
+  margin: 0;
 }
 
 .sorter-type-list button:hover,
@@ -565,7 +565,7 @@ height: 2px;
   background-color: transparent;
   border: none;
   outline: none;
-  margin: none;
+  margin: 0;
 }
 
 .sorter-arrange-list button:hover,
@@ -573,13 +573,14 @@ height: 2px;
   color: var(--arrange-button-hover);
 }
 
-.sorter-arrange-list button:active {
+.sorter-arrange-list button:active,
+.sorter-arrange-list .current {
   color: var(--arrange-button-hover);
   opacity: 0.2;
 }
 
 /*форма треугольника, свг-картинки */
-/* cостояние активного пункта=active? */
+/* cостояние пункта .current такое же как :active */
 
 
 .product-card-list {
@@ -667,16 +668,12 @@ width: 200px;height: 50px;*/
   width: 260px; height: 50px;}
 */
 
-/* .button-pag { 
+/* button-pag {
  размеры фиксированные width: 50px; height: 50px;
-}*/
+} */
 
-.button-pag-current,
-.button-pag-current:hover,
-.button-pag-current:focus,
-.button-pag-current:active {
-  background-color: var(--basic-dark-0001);
+.catalog-pagination-list .current {
+  background-color: var(--basic-light);
   color: var(--basic-dark);
   border: 3px solid var(--pagin-stroke);
-  box-shadow: none;
 }
