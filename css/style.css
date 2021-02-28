@@ -87,9 +87,12 @@
 
 /* index */
 
+.page {
+  height: 100%;
+}
 
 .page-body {
-  min-width: 960px;
+  min-width: 1440px;
   margin: 0;
   padding: 0;
 
@@ -98,6 +101,11 @@
   line-height: 24px;
   font-weight: 400;
   color: var(--text);
+
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
 }
 
 .page-body img {
@@ -105,8 +113,17 @@
   height: auto;
 }
 
-.main-header {
+/* .main-header {
+} */
+/* почему сюда не навесить фон, а доп обертку нужно? */
+
+.main-nav-bar {
   background-color: var(--basic-grey);
+}
+
+
+.main-logo {
+  margin: 56px 0 0 0;
 }
 
 .main-logo:hover,
@@ -116,6 +133,18 @@
 
 .main-logo:active {
   opacity: 0.3;
+}
+
+/* почему не перекрывается это свойство каскадом .main-nav a, ведь оно позже? 
+специфичность? почитать еще раз, лучше перенести ниже наверное*/
+
+.main-nav {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  width: 1160px;
+  margin: 0 auto;
+  padding: 0;
+  /* выровнять по центру вертикали - найти тег */
 }
 
 .main-nav a {
@@ -137,9 +166,10 @@
   opacity: 0.3;
 }
 
-/* .nav-item-current {
-  линия внизу
-  color: var(--accent);
+/* 
+.nav-item-current {
+  +линия внизу
+  color: var(--acce nt);
   1. сделать некликабельной - НЕ как ссылку-  
   тогда продублировать на этот класс класс ссылки.
   2. ИЛИ кликабельной. но все состояния этого класса сделать = состоянию покоя
@@ -147,14 +177,19 @@
   проверить, перекроет этот класс класс .main-nav a, будучи ссылкой?
 }*/
 
-.nav-list {
+.site-nav-list {
   list-style: none;
-  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0 244px 0 200px;
+  margin: 83px 0 41px 0;
 }
 
-/* .nav-basket { 
- навесить иконку 
-}*/
+.user-nav {
+  margin: 83px 0 41px 0;
+}
+
+/*.nav-basket навесить иконку  */
 
 .visually-hidden {
   position: absolute;
@@ -164,11 +199,55 @@
   margin: -1px;
 }
 
-/* .container 
-      центровать */
+.container {
+  width: 1160px;
+  margin: 0 auto;
+  padding: 0;
+}
 
-/* убрать визуал кнопки, навесить кружки
-.slider-stitcher button{
+.advantage-slider-bar {
+  min-width: 1440px;
+  margin: 0 auto 77px auto;
+  padding: 42px 0 83px 0 ;
+  background-color: var(--basic-grey);
+}
+
+.advantage-slider {
+  width: 1160px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.slider {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+.slider-stitcher {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+
+  margin: 272px auto 0 auto;
+  padding: 0;
+  /* как спозиционировать просто по низу блока? вертикального выравнивания не хватает */
+
+  text-align: center;
+  vertical-align: bottom;
+
+  z-index: 4;
+}
+
+.slider-stitcher button {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* мб тут будет другой способ, проще (флексы?)*/
+
+/* .slider-stitcher button
+ убрать визуал кнопки, навесить кружки
      width: 18px;
      height: 18px;
      background: --basic-light; 
@@ -181,14 +260,51 @@
 } добавляется сверху по клику 
 */
 
+/* по наведению и клику на .slider-stitcher button определенного номера (класс сделать) 
+наверх вылезает определеный .advantage-item (или видимость им назначить вместо z-index. подумаю...) */
 
 .advantage-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+
+  grid-row: 1 / -1;
+  grid-column: 1 / 4;
+
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
 }
 
-.advantage-slider {
+.advantage-list h3 {
+  margin: 0 0 35px 0;
+}
+
+.advantage-list p {
+  margin: 0 0 32px 0;
+}
+
+.advantage-list buttom {
+  margin: 0;
+}
+
+.advantage-item {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+
   background-color: var(--basic-grey);
+}
+
+.advantage-item1 {
+  z-index: 3;
+}
+
+.advantage-item2 {
+  z-index: 2;
+}
+
+.advantage-item3 {
+  z-index: 1;
 }
 
 .advantage-item h3 {
@@ -212,7 +328,7 @@
   border-radius: 3px;
 }
 
-/* кнопку позже сделать, возможно так, почитать
+/* кнопку позже сделать, возможно так, почитать:
     display: block; или inline-block.
   и отступы, чтобы добиться width: 240px; height: 50px; 
   проблема с доп. навешиванием прозрачности не решается*/
@@ -230,7 +346,23 @@
 
 .service-list {
   list-style: none;
-  padding: 0;
+  padding: 0 60px 160px 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 100px;
+}
+
+.service-list img {
+  margin-bottom: 30px;
+}
+
+.service-list h3 {
+  margin: 0 0 28px 0;
+}
+
+.service-list p {
+  margin: 0 0 35px 0;
 }
 
 .service-app-button {
@@ -267,42 +399,41 @@
   color: var(--basic-dark);
 }
 
-/* .service {}
-
-  .service-list {}
-
-  .service-item {}
-
-  .service-item img {}
-
- .about {} */
-
-
-
-.about-us-list {
-  list-style: none;
-  padding: 0;
+.about {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 0 0 124px 0;
 }
+/* обе колонки должны быть выровнены по низу. как просто это сделатЬ? */
 
 .about-us h3 {
+  margin: 0 0 36px 0;
   font-weight: 500;
   font-size: 45px;
   line-height: 45px;
   color: var(--basic-dark);
 }
 
+.about-us p {
+  margin: 0 0 48px 0;
+}
 
-.about h4 {
+.about-us h4 {
+  margin: 0 0 34px 0;
   font-weight: 700;
   font-size: 16px;
   line-height: 30px;
   text-transform: uppercase;
 }
 
-.about-progress h4 {
-  color: var(--basic-dark);
+.about-us-list {
+  list-style: none;
+  padding: 0;
 }
 
+.about-us-list li {
+  margin: 0 0 32px 0;
+}
 
 /* .about-us-list { 
 буллитом линию + пробел, учесть расстояния внутри бокса до текста в Фигме
@@ -312,41 +443,69 @@ height: 2px;
 }
 */
 
+.about-progress img  {
+  margin: -40px 0 40px 0;
+}
+
+.about-progress h4 {
+  color: var(--basic-dark);
+  text-transform: uppercase;
+  margin: 0 0 50px 0;
+}
+
 .about-progress-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* выровнять блок по гориз. центру - найти тег */
 }
 
 .about-progress {
   text-align: center;
 }
 
+/* центровать */
+/* .about-progress-list {
+} */
 
-/* центровать
-.about-progress-list {
-}*/
 
 .about-progress-item {
   line-height: 18px;
   text-align: left;
+  margin: 0;
 }
 
-.about-progresss-dig {
+.about-progress-dig {
   font-weight: 700;
   font-size: 45px;
   line-height: 64px;
   color: var(--basic-dark);
+  margin: 0 0 28px 0;
 }
 
+.about-progress-item p {
+margin: 0;
+}
 
-/*.partners {}
+/* не выравнивается низ колонок. неправильно промеряю отступы? должен быть способ проще */
+
+.partners {
+  margin: 0 0 126px 0;
+}
   
-.partners-item {}
- */
-
 .partners-list {
   list-style: none;
   padding: 0;
+
+  display: grid;
+  grid-template-columns: 281px 300px 300px 281px;
+  text-align: center;
+
+  /* центровка блока + разделители - сравнить с макетом*/
+  /*  justify-self: center; - почему это не центрует? это свойство блока, а не текса внутри него? */
 }
 
 .partners-list a {
@@ -366,16 +525,80 @@ height: 2px;
   opacity: 0.1;
 }
 
-/* .main-footer {}
-.location {}
-.map {}
-.map-marker {}
- */
+.location-bar {
+  background-color: var(--basic-grey);
+
+  min-width: 1440px;
+  margin: 0 auto 68px auto;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* при условии, что карта на всю ширину интерактивная:
+  если не загрущится карта, будет этот фон.
+  если ИА-карта не загрузится, будет фото карты и фон. 
+  в bar ИА-карту навесить*/
+
+.location-warper {
+  margin: 0 auto;
+  padding: 0;
+
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.map {
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+  z-index: 1;
+}
+
+.map-marker {
+  margin: 88px 0 0 102px;
+  padding: 0;
+
+  grid-row: 1 / -1;
+  grid-column: 2 / 3;
+  /* точно позиционировать как-то иначе нужно */
+  z-index: 2;
+}
+
+.contacts-warper {
+  width: 1160px;
+  margin: 0 auto;
+  padding: 0;
+
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+  z-index: 2;
+}
 
 .contacts {
+  width: 219px;
+  height: 211px;
+  /* width: 319px; height: 308px;рассчет реальный размер в макете минус поля. чет слишком сложно. наверное, есть способо проще это спозицонировать */
+  /* центровать объекты относительно др др по вертикали как, если не полями? */
+  margin: 54px 0 54px 0;
+  padding: 50px 50px 47px 50px;
+  /* бокс в фигме прибавляет по краям внутри до текст - где эти установки?
+как отцентровать относительно др друга объекты при наложении?
+позионировать пин проще можно. А на ИА карте, она же масштабируется - скрипты? */
+
   color: var(--card-text);
   background-color: var(--basic-light);
   font-style: normal;
+
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+
+  z-index: 2;
 }
 
 .contacts-title {
@@ -384,21 +607,42 @@ height: 2px;
   line-height: 30px;
   text-transform: uppercase;
   color: var(--basic-dark);
+  margin: 0 0 34px 0;
 }
 
 .contacts-text {
   line-height: 18px;
+  margin: 0 0 23px 0;
 }
 
 .contacts-tel {
   color: inherit;
   text-decoration: none;
+  margin: 0 0 37px 0;
 }
 
+.social {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 140px;
+}
+
+
+.social-icons {
+  grid-column: 1 / 2;
+}
+
+.social-slogan {
+  grid-column: 2 / -1;
+}
 
 .social-list {
   list-style: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
 }
 
 .social-item a {
@@ -412,14 +656,15 @@ height: 2px;
 = состояниям акцентной кнопки. иконики=текст + фон*/
 /*  убрать названия и повесить иконки */
 
-.social-header {
+.social-slogan h3 {
   font-weight: 700;
   font-size: 36px;
   line-height: 36px;
   color: var(--basic-dark);
+  margin: 7px 0 13px 0;
 }
 
-.social-text {
+.social-slogan p {
   line-height: 22px;
   color: var(--text-footer);
 }
@@ -512,7 +757,7 @@ height: 2px;
   list-style: none;
   margin: 0;
   padding: 0;
-  }
+}
 
 .button-soft {
   background-color: var(--basic-grey);
