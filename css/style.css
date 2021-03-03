@@ -87,12 +87,18 @@
 
 /* index */
 
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .page {
   height: 100%;
 }
 
 .page-body {
-  min-width: 1440px;
+  min-width: 1200px;
   margin: 0;
   padding: 0;
 
@@ -108,43 +114,42 @@
   align-content: start;
 }
 
-.page-body img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* .main-header {
-} */
-/* почему сюда не навесить фон, а доп обертку нужно? */
-
-.main-nav-bar {
+.bar {
+  /* min-width: 1200px; */
+  /* это указано в body, тут излишне? */
   background-color: var(--basic-grey);
 }
 
-
-.main-logo {
-  margin: 56px 0 0 0;
+.container {
+  width: 1160px;
+  margin: 0 auto;
+  padding: 0;
 }
 
-.main-logo:hover,
-.main-logo:focus {
+.main-nav {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  padding: 49px 0 0 0;
+  /* выровнять потомков по вертикали - позиционирование*/
+
+  /* внизу остается зазор в несколько пункот ов - см. Скайп - не нахожу его причины. остутп же 0! */
+
+  /* outline: 5px solid rgba(76, 0, 255, 0.7);
+  outline-offset: -5px; */
+}
+
+.main-logo {
+  /* outline: 5px solid rgba(255, 17, 0, 0.7);
+  outline-offset: -5px; */
+
+}
+
+.main-logo:hover {
   opacity: 0.7;
 }
 
 .main-logo:active {
   opacity: 0.3;
-}
-
-/* почему не перекрывается это свойство каскадом .main-nav a, ведь оно позже? 
-специфичность? почитать еще раз, лучше перенести ниже наверное*/
-
-.main-nav {
-  display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  width: 1160px;
-  margin: 0 auto;
-  padding: 0;
-  /* выровнять по центру вертикали - найти тег */
 }
 
 .main-nav a {
@@ -156,8 +161,7 @@
   color: var(--basic-dark);
 }
 
-.main-nav a:hover,
-.main-nav a:focus {
+.main-nav a:hover {
   color: var(--accent);
 }
 
@@ -180,13 +184,24 @@
 .site-nav-list {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 0 244px 0 200px;
-  margin: 83px 0 41px 0;
+  grid-template-columns: repeat(4, auto);
+  padding: 0 286px 0 202px;
+  margin: 0;
+
+  /* outline: 5px solid rgba(9, 255, 0, 0.7);
+  outline-offset: -5px; */
+}
+
+/* в ПП кривовато из-за выключки влево по колонке, сделаю после на флексах, чтоб разогнать по ширине блока */
+
+.site-nav-list li {
+  padding: 0;
+  margin: 0;
 }
 
 .user-nav {
-  margin: 83px 0 41px 0;
+  /* outline: 5px solid rgba(0, 195, 255, 0.7);
+  outline-offset: -5px; */
 }
 
 /*.nav-basket навесить иконку  */
@@ -199,119 +214,77 @@
   margin: -1px;
 }
 
-.container {
-  width: 1160px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.advantage-slider-bar {
-  min-width: 1440px;
-  margin: 0 auto 77px auto;
-  padding: 42px 0 83px 0 ;
-  background-color: var(--basic-grey);
-}
-
-.advantage-slider {
-  width: 1160px;
-  margin: 0 auto;
-  padding: 0;
-}
-
 .slider {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
+  padding: 78px 0 78px 0;
+
+  /* outline: 5px solid rgba(255, 0, 64, 0.7);
+  outline-offset: -5px; */
 }
 
-.slider-stitcher {
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
+/* можно сделать сетку из 6fr c  перекрытием центральных колонок (в учебнике подобное есть). или без гридов вообще тут лучше? */
 
-  margin: 272px auto 0 auto;
+.slider-control {
+  margin: 0 auto;
   padding: 0;
-  /* как спозиционировать просто по низу блока? вертикального выравнивания не хватает */
-
-  text-align: center;
-  vertical-align: bottom;
+  /*  спозиционировать  по низу блока */
 
   z-index: 4;
+  /* 
+  outline: 5px solid rgba(212, 0, 255, 0.7);
+  outline-offset: -5px; */
 }
 
-.slider-stitcher button {
+.slider-control button {
   margin: 0;
   padding: 0;
 }
 
-
+/* позиционирование и визуал будут в след. дом.заданиях, пока так */
 /* мб тут будет другой способ, проще (флексы?)*/
 
-/* .slider-stitcher button
+/* .slider-control button
  убрать визуал кнопки, навесить кружки
      width: 18px;
      height: 18px;
      background: --basic-light; 
      состояние покоя
 }
-.slider-stitcher button:active {
+.slider-control button:active {
      width: 8px;
      height: 8px;
      border: 2px solid var(--switcher-active);
 } добавляется сверху по клику 
 */
 
-/* по наведению и клику на .slider-stitcher button определенного номера (класс сделать) 
-наверх вылезает определеный .advantage-item (или видимость им назначить вместо z-index. подумаю...) */
-
-.advantage-list {
+.slide-list {
   list-style: none;
   padding: 0;
   margin: 0;
 
-  grid-row: 1 / -1;
-  grid-column: 1 / 4;
+  /* outline: 5px solid rgba(0, 255, 0, 0.7);
+  outline-offset: -5px; */
 
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
+  /* z-index: 1; */
 }
 
-.advantage-list h3 {
-  margin: 0 0 35px 0;
-}
-
-.advantage-list p {
-  margin: 0 0 32px 0;
-}
-
-.advantage-list buttom {
-  margin: 0;
-}
-
-.advantage-item {
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-
-  background-color: var(--basic-grey);
-}
-
-.advantage-item1 {
-  z-index: 3;
-}
-
-.advantage-item2 {
-  z-index: 2;
-}
-
-.advantage-item3 {
-  z-index: 1;
-}
-
-.advantage-item h3 {
+.slide-list h3 {
   font-weight: 500;
   font-size: 55px;
   line-height: 55px;
   color: var(--basic-dark);
+  margin: 0 0 25px 0;
+}
+
+.slide-list p {
+  margin: 0 0 38px 0;
+}
+
+.slide-none {
+  display: none;
+}
+
+.slide-current {
+  display: block;
 }
 
 .button {
@@ -333,8 +306,7 @@
   и отступы, чтобы добиться width: 240px; height: 50px; 
   проблема с доп. навешиванием прозрачности не решается*/
 
-.button:hover,
-.button:focus {
+.button:hover {
   background-color: var(--accent-hover);
 }
 
@@ -344,9 +316,17 @@
   box-shadow: inset 0px 3px 0px var(--basic-dark-10);
 }
 
+.service {
+  padding: 80px 0 80px 0;
+
+  /* outline: 5px solid rgba(0, 255, 0, 0.7);
+  outline-offset: -5px; */
+}
+
 .service-list {
   list-style: none;
-  padding: 0 60px 160px 0;
+  padding: 0 60px 0 0;
+  margin: 0;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -354,15 +334,20 @@
 }
 
 .service-list img {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .service-list h3 {
-  margin: 0 0 28px 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: var(--basic-dark);
+  margin: 0 0 16px 0;
 }
 
 .service-list p {
-  margin: 0 0 35px 0;
+  margin-bottom: 32px;
 }
 
 .service-app-button {
@@ -373,13 +358,11 @@
   background-color: var(--accent-pres);
 }
 
-.service-app-button:hover,
-.service-app-button:focus {
+.service-app-button:hover {
   background-color: var(--accent-app-hover);
 }
 
-.service-pres-button:hover,
-.service-pres-button:focus {
+.service-pres-button:hover {
   background-color: var(--accent-pres-hover);
 }
 
@@ -391,49 +374,63 @@
   background-color: var(--accent-pres-click);
 }
 
-.service-item h3 {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 30px;
-  text-transform: uppercase;
-  color: var(--basic-dark);
-}
+/* отсюда ПП едед по высоте, т,к. еще не сделаны кнопки, их высота не учтена */
 
 .about {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  margin: 0 0 124px 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  padding: 73px 0 73px 0;
+
+  /* outline: 5px solid rgba(4, 0, 255, 0.7);
+  outline-offset: -5px; */
+
 }
-/* обе колонки должны быть выровнены по низу. как просто это сделатЬ? */
+
+/* обе колонки и about должны быть выровнены по низу колоки progress. флексы? */
+
+.about-us {
+  grid-column: 1 / 3;
+
+  /* outline: 5px solid rgba(255, 230, 0, 0.7);
+  outline-offset: -5px; */
+
+}
 
 .about-us h3 {
-  margin: 0 0 36px 0;
   font-weight: 500;
   font-size: 45px;
   line-height: 45px;
   color: var(--basic-dark);
+  margin: 0 0 32px 0;
 }
 
 .about-us p {
-  margin: 0 0 48px 0;
+  margin: 0 0 40px 0;
 }
 
 .about-us h4 {
-  margin: 0 0 34px 0;
   font-weight: 700;
-  font-size: 16px;
   line-height: 30px;
   text-transform: uppercase;
+  margin: 0 0 23px 0;
 }
+
+/* ПП уезжает, но отсутпы точные! - почему?? */
 
 .about-us-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+
 }
 
-.about-us-list li {
-  margin: 0 0 32px 0;
-}
+/* .about-us-list li {
+  margin: 0;
+} */
+
+/* вместо этого выключить блок about-us-list по формату по вертикали */
+
 
 /* .about-us-list { 
 буллитом линию + пробел, учесть расстояния внутри бокса до текста в Фигме
@@ -442,60 +439,79 @@ height: 2px;
 цвет линии: var(--accent); 
 }
 */
-
-.about-progress img  {
-  margin: -40px 0 40px 0;
+.about-progress {
+  grid-column: 3 / 4;
+  text-align: center;
 }
 
+
+.about-progress img {
+  margin: -34px 0 37px 0;
+
+  /* outline: 5px solid rgba(4, 0, 255, 0.7);
+  outline-offset: -5px; */
+}
+
+/*  лого стоит точно на своей позиции,
+расстояние между ним и h4 точно вымерено.
+почему уехало?? 
+*/
+
 .about-progress h4 {
-  color: var(--basic-dark);
+  font-weight: 700;
+  /* без font-weight тот же вид - почему? болдовые стили по умолчанию для заголовков совпали? */
   text-transform: uppercase;
-  margin: 0 0 50px 0;
+  color: var(--basic-dark);
+  margin: 0 0 31px 0;
 }
 
 .about-progress-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* выровнять блок по гориз. центру - найти тег */
+
+  /* outline: 5px solid rgba(0, 255, 0, 0.7);
+  outline-offset: -5px; */
 }
-
-.about-progress {
-  text-align: center;
-}
-
-/* центровать */
-/* .about-progress-list {
-} */
-
 
 .about-progress-item {
-  line-height: 18px;
   text-align: left;
   margin: 0;
 }
 
-.about-progress-dig {
+.about-progress-item p {
+  line-height: 18px;
+  margin: 0;
+}
+
+.about-progress-item .about-progress-dig {
   font-weight: 700;
   font-size: 45px;
   line-height: 64px;
   color: var(--basic-dark);
-  margin: 0 0 28px 0;
+  margin-bottom: 10px;
 }
 
-.about-progress-item p {
-margin: 0;
-}
-
-/* не выравнивается низ колонок. неправильно промеряю отступы? должен быть способ проще */
+/* выровнять низ колонок. см выше */
 
 .partners {
-  margin: 0 0 126px 0;
+  padding: 46px 0 64px 0;
+
+  /* outline: 5px solid rgba(4, 0, 255, 0.7);
+  outline-offset: -5px; */
 }
-  
+
+/* отсуп сверху встанет на место, когда выровняем низ колонок в верхнем блоке */
+/* вместо bottom 44px - 64 в счет футера для его унификации в стилях для всех страниц */
+
+/* от верхней  линий абсолютно  точные 46 px по макету, 
+но в ПП логотип с усами, по которому ровняли, уехал вниз! почему???
+
+а от усов до карты д.б. 126 px, что в сумме прописано. но уезжает! */
+
 .partners-list {
   list-style: none;
   padding: 0;
@@ -503,10 +519,16 @@ margin: 0;
   display: grid;
   grid-template-columns: 281px 300px 300px 281px;
   text-align: center;
-
-  /* центровка блока + разделители - сравнить с макетом*/
-  /*  justify-self: center; - почему это не центрует? это свойство блока, а не текса внутри него? */
 }
+
+/* оставлю пока не (4, 1fr)?  у меня есть мысль с позиционировнаием и палками */
+
+/* центровка блока + разделители - сравнить с макетом*/
+/* 1-й лого padding-left: 32px; text-align: left;
+  последний padding-right: 43; text-align: right; через ::?*/
+/* кстати в макете центровка кривая у 2-3 элементов, да и вообще у всех в блоке */
+/* центровать по вертикали руками, в макете гоняли это растояние (м.б. будут флексы или похзиционирование, тогда.) */
+
 
 .partners-list a {
   text-decoration: none;
@@ -516,8 +538,7 @@ margin: 0;
   opacity: 0.2;
 }
 
-.partners-list img:hover,
-.partners-list img:focus {
+.partners-list img:hover {
   opacity: 1;
 }
 
@@ -525,94 +546,63 @@ margin: 0;
   opacity: 0.1;
 }
 
-.location-bar {
-  background-color: var(--basic-grey);
+.main-footer {
+  padding: 60px 0 68px 0;
 
-  min-width: 1440px;
-  margin: 0 auto 68px auto;
-  padding: 0;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  /* outline: 5px solid rgba(4, 0, 255, 0.7);
+  outline-offset: -5px; */
 }
 
-/* при условии, что карта на всю ширину интерактивная:
-  если не загрущится карта, будет этот фон.
-  если ИА-карта не загрузится, будет фото карты и фон. 
-  в bar ИА-карту навесить*/
+/* тут по промерам padding: 80px 0 0 0;
+в Каталоге padding: 60px 0 0 0; 
+чтобы унифицировать отступ футера в стилях для всех страниц, 
+задаем в Партнерах снизу больше на 20 и сместим празделитель с верт.центра
+ */
 
-.location-warper {
-  margin: 0 auto;
-  padding: 0;
+/* по линиям опять уезжают отступы почему... */
 
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
+.location {
+  min-width: 1200;
+  text-align: center;
 }
 
-.map {
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-  z-index: 1;
-}
+/* карта на всю ширину экрана интерактивная:
+  если не загрузится карта, будет фон.
+  если ИА-карта не загрузится, будет фото карты и фон. */
 
-.map-marker {
-  margin: 88px 0 0 102px;
-  padding: 0;
+.map {}
 
-  grid-row: 1 / -1;
-  grid-column: 2 / 3;
-  /* точно позиционировать как-то иначе нужно */
-  z-index: 2;
-}
-
-.contacts-warper {
-  width: 1160px;
-  margin: 0 auto;
-  padding: 0;
-
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-  z-index: 2;
-}
+.map-marker {}
 
 .contacts {
-  width: 219px;
-  height: 211px;
-  /* width: 319px; height: 308px;рассчет реальный размер в макете минус поля. чет слишком сложно. наверное, есть способо проще это спозицонировать */
-  /* центровать объекты относительно др др по вертикали как, если не полями? */
-  margin: 54px 0 54px 0;
-  padding: 50px 50px 47px 50px;
-  /* бокс в фигме прибавляет по краям внутри до текст - где эти установки?
-как отцентровать относительно др друга объекты при наложении?
-позионировать пин проще можно. А на ИА карте, она же масштабируется - скрипты? */
+  width: 319px;
+  height: 308px;
+  padding: 49px 39px 47px 50px;
+  margin: 0;
+
+  /* какая-то ерунда с размерами по факут получается, хотя измерено правильно...
+  заголовок поэтому центруется по неправильной ширине плашки */
+
+  /* как позиционировать пин на ИА карте, она же масштабируется и двигается - скрипты? */
 
   color: var(--card-text);
   background-color: var(--basic-light);
   font-style: normal;
-
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-
-  z-index: 2;
+  text-align: left;
 }
 
 .contacts-title {
   font-weight: 700;
   font-size: 18px;
   line-height: 30px;
+  text-align: center;
   text-transform: uppercase;
   color: var(--basic-dark);
-  margin: 0 0 34px 0;
+  margin: 0 0 23px 0;
 }
 
 .contacts-text {
   line-height: 18px;
-  margin: 0 0 23px 0;
 }
 
 .contacts-tel {
@@ -622,10 +612,18 @@ margin: 0;
 }
 
 .social {
+  padding: 68px 0 68px 0;
+
+  /* нижня граница после вставки иконок будет ниже. 68px! 
+  от низа карты до низа футера д.б 217 px*/
+
   display: grid;
   grid-template-columns: 260px 1fr;
   grid-template-rows: 1fr;
   grid-gap: 140px;
+
+  /* outline: 5px solid rgba(4, 0, 255, 0.7);
+  outline-offset: -5px; */
 }
 
 
@@ -640,10 +638,16 @@ margin: 0;
 .social-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+
+  /* outline: 5px solid rgba(4, 0, 255, 0.7);
+  outline-offset: -5px; */
+
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 10px;
 }
+
+/* тут наверное флексами расятнуть на ширину блока родителя просто */
 
 .social-item a {
   text-decoration: none;
@@ -651,7 +655,6 @@ margin: 0;
 }
 
 /* .social-item a:hover,
-.social-item a:focus
 .social-item a:active
 = состояниям акцентной кнопки. иконики=текст + фон*/
 /*  убрать названия и повесить иконки */
@@ -661,13 +664,17 @@ margin: 0;
   font-size: 36px;
   line-height: 36px;
   color: var(--basic-dark);
-  margin: 7px 0 13px 0;
+  margin: 0 0 10px 0;
 }
 
 .social-slogan p {
   line-height: 22px;
   color: var(--text-footer);
+  margin: 0;
 }
+
+/* текст д.отбиваться от карты больше, чем в родительском паддинге (там промер до иконок) - 75px, 
+потом подровнять после вставки иконок*/
 
 
 /* catalog */
@@ -692,7 +699,6 @@ margin: 0;
 
 .field-of-toddler input,
 .field-of-toddler input:hover,
-.field-of-toddler input:focus,
 .field-of-toddler input:active {
   background-color: var(--basic-grey);
   border: none;
@@ -725,7 +731,6 @@ margin: 0;
 }
 
 .radiobutton input:hover,
-.radiobutton input:focus,
 .radiobutton input:active {
   opacity: 1;
 }
@@ -744,7 +749,6 @@ margin: 0;
 /* РАЗОБРАТЬСЯ ПОТОМ: у чекбоксов другие состояния: клик = [выбор;снятие выбора]  c checked
 в 2 раза больше? с галкой все состо\яния и без галочки все состояния? обдумать
 .checkbox input:hover,
-.checkbox input:focus,
 .checkbox input:active
 
 .checkbox input:checked
@@ -764,8 +768,7 @@ margin: 0;
   color: var(--basic-dark);
 }
 
-.button-soft:hover,
-.button-soft:focus {
+.button-soft:hover {
   background-color: var(--button-soft-hover);
   color: var(--basic-dark);
 }
@@ -789,8 +792,7 @@ margin: 0;
   margin: 0;
 }
 
-.sorter-type-list button:hover,
-.sorter-type-list button:focus {
+.sorter-type-list button:hover {
   opacity: 0.6;
 }
 
@@ -813,8 +815,7 @@ margin: 0;
   margin: 0;
 }
 
-.sorter-arrange-list button:hover,
-.sorter-arrange-list button:focus {
+.sorter-arrange-list button:hover {
   color: var(--arrange-button-hover);
 }
 
@@ -855,13 +856,11 @@ margin: 0;
 }
 
 /* .product-card-item:hover .product-card-top-spot,
-.product-card-item:focus .product-card-top-spot,
 .product-card-item:active .product-card-top-spot {
   opacity: 1;
 }
 
 .product-card-item:hover .product-card-info,
-.product-card-item:focus .product-card-info,
 .product-card-item:active .product-card-info {
   opacity: 1;
 }
@@ -880,8 +879,7 @@ margin: 0;
   color: var(--basic-dark);
 }
 
-.product-card-info a:hover,
-.product-card-info a:focus {
+.product-card-info a:hover {
   color: var(--accent);
 }
 
