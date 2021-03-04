@@ -129,10 +129,17 @@ img {
 .main-nav {
   display: grid;
   grid-template-columns: max-content 1fr max-content;
-  padding: 49px 0 0 0;
+  padding: 49px 0 31px 0;
+
+  /* <!-- для унификации высоты меню, сделать паддинг блока меню внизу (сейчас в стилях 0),
+  а у следующих блоков - отрицательный, если он ляжет поверх. --> */
+
   /* выровнять потомков по вертикали - позиционирование*/
 
-  /* внизу остается зазор в несколько пункот ов - см. Скайп - не нахожу его причины. остутп же 0! */
+  /* 39*2=78 отступ в каталоге от меню (не учитвая палку правда пока) до заголовка, делим на 2, 
+  унифицируем - чтоб в бланке был фон ниже меню.
+  возможно, картинка дает инт-ж, см. далее такая ситуация. 
+  надо вычесть из оступа разницу между инт-м и кеглем текста (24-16=8), от которого идет оступ (тут body)*/
 
   /* outline: 5px solid rgba(76, 0, 255, 0.7);
   outline-offset: -5px; */
@@ -141,7 +148,6 @@ img {
 .main-logo {
   /* outline: 5px solid rgba(255, 17, 0, 0.7);
   outline-offset: -5px; */
-
 }
 
 .main-logo:hover {
@@ -215,14 +221,14 @@ img {
 }
 
 .slider {
-  padding: 78px 0 78px 0;
+  padding: 39px 0 78px 0;
 
   /* outline: 5px solid rgba(255, 0, 64, 0.7);
   outline-offset: -5px; */
 }
 
 /* можно сделать сетку из 6fr c  перекрытием центральных колонок (в учебнике подобное есть). или без гридов вообще тут лучше? */
-
+/* верзхний отступ 78-39=39 - см. выше */
 .slider-control {
   margin: 0 auto;
   padding: 0;
@@ -317,7 +323,9 @@ img {
 }
 
 .service {
-  padding: 80px 0 80px 0;
+  padding: 80px 0 82px 0;
+
+  /* 80 нижний отступ +2 толщина линии */
 
   /* outline: 5px solid rgba(0, 255, 0, 0.7);
   outline-offset: -5px; */
@@ -334,8 +342,12 @@ img {
 }
 
 .service-list img {
-  margin-bottom: 25px;
+  margin-bottom: 19px;
 }
+
+/* вообще отступ 25px! но img хоть и блочный, но дает что-то типа итерлиньяжав что ли в блоке li - ПОЧЕМУ??
+если его убрать 30px (инт-ж h3) - 24px (кг h3) = 19 px, то ПП встает на место */
+
 
 .service-list h3 {
   font-weight: 700;
@@ -349,6 +361,8 @@ img {
 .service-list p {
   margin-bottom: 32px;
 }
+
+/* не точный отступ полчаетися до конпки. но почему? по верхним граница должно совпасть */
 
 .service-app-button {
   background-color: var(--accent-app);
@@ -380,13 +394,14 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
-  padding: 73px 0 73px 0;
+  padding: 73px 0 75px 0;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
 
 }
 
+/* 73 нижний отступ + 2 толщина линии */
 /* обе колонки и about должны быть выровнены по низу колоки progress. флексы? */
 
 .about-us {
@@ -422,7 +437,6 @@ img {
   list-style: none;
   padding: 0;
   margin: 0;
-
 }
 
 /* .about-us-list li {
@@ -446,7 +460,7 @@ height: 2px;
 
 
 .about-progress img {
-  margin: -34px 0 37px 0;
+  margin: -34px 0 29px 0;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
@@ -456,6 +470,10 @@ height: 2px;
 расстояние между ним и h4 точно вымерено.
 почему уехало?? 
 */
+
+/* возможно, картинка дает инт-ж... ?? надо вычесть из отступа разницу между инт-м и кеглем текста, от которого идет оступ (тут body 24-16=8,37 (реальный отступ после картинки)-8=29), */
+
+
 
 .about-progress h4 {
   font-weight: 700;
@@ -482,33 +500,40 @@ height: 2px;
   margin: 0;
 }
 
-.about-progress-item p {
-  line-height: 18px;
-  margin: 0;
-}
 
 .about-progress-item .about-progress-dig {
   font-weight: 700;
   font-size: 45px;
   line-height: 64px;
   color: var(--basic-dark);
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
+}
+
+/* да что за чудеса оять с отспупом до текста?? в чем причина?? */
+
+.about-progress-dig sup {
+  /* понизить базовую линию!!! из-за своего кегля и инт-жа в макете на отдельный символ %, 
+  она своя, не как у стандартного верхнего индекса. или рассчитать от инт-жа сразу */
+}
+
+.about-progress-item p {
+  line-height: 18px;
 }
 
 /* выровнять низ колонок. см выше */
 
 .partners {
-  padding: 46px 0 64px 0;
+  padding: 46px 0 126px 0;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
 }
 
 /* отсуп сверху встанет на место, когда выровняем низ колонок в верхнем блоке */
-/* вместо bottom 44px - 64 в счет футера для его унификации в стилях для всех страниц */
+/* bottom 44px до линии, 2px линия, 80px до футера. (у футера сверху 0 остутп по всем страницам) */
 
-/* от верхней  линий абсолютно  точные 46 px по макету, 
-но в ПП логотип с усами, по которому ровняли, уехал вниз! почему???
+/* от верхней  линий абсолютно  точные 46 px по макету ) , 
+но в ПП логотип с усами, по которому ровняли, уехал вниз! почему??? ПОМТОУ ЧТО ТОЛЩИНА ЛИНИИ ЕЩЕ2 px
 
 а от усов до карты д.б. 126 px, что в сумме прописано. но уезжает! */
 
@@ -547,7 +572,7 @@ height: 2px;
 }
 
 .main-footer {
-  padding: 60px 0 68px 0;
+  padding: 0 0 76px 0;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
@@ -580,7 +605,7 @@ height: 2px;
   padding: 49px 39px 47px 50px;
   margin: 0;
 
-  /* какая-то ерунда с размерами по факут получается, хотя измерено правильно...
+  /* какая-то ерунда с размерами по факту получается, хотя измерено правильно...
   заголовок поэтому центруется по неправильной ширине плашки */
 
   /* как позиционировать пин на ИА карте, она же масштабируется и двигается - скрипты? */
@@ -612,10 +637,10 @@ height: 2px;
 }
 
 .social {
-  padding: 68px 0 68px 0;
+  padding: 68px 0 0 0;
 
   /* нижня граница после вставки иконок будет ниже. 68px! 
-  от низа карты до низа футера д.б 217 px*/
+  от низа карты до низа футера д.б 225 px*/
 
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -683,14 +708,31 @@ height: 2px;
   font-weight: 500;
   font-size: 55px;
   line-height: 55px;
-  color: var (--basic-dark);
+  text-align: center;
+  color: var(--basic-dark);
   background-color: var(--basic-grey);
+
+  padding: 78px 0 108px 0;
+  margin: 0 auto;
 }
 
-/* .catalog-form {} */
-/* .catalog-form fieldset{} */
+.catalog {
+  padding: 55px 0 60px 0;
 
-.catalog-form fieldset,
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 360px 1fr;
+  grid-column-gap: 140px;
+}
+
+.catalog-filter {
+grid-row: 1 / -1;
+grid-column: 1/ 2;
+}
+
+/* .catalog-filter fieldset{} */
+
+.catalog-filter fieldset,
 .catalog-sorter fieldset {
   border: none;
   margin: 0;
@@ -712,7 +754,7 @@ height: 2px;
   text-transform: uppercase;
 }
 
-.catalog-form legend,
+.catalog-filter legend,
 .catalog-sorter legend {
   font-weight: 700;
   font-size: 18px;
@@ -721,7 +763,7 @@ height: 2px;
   color: var(--basic-dark);
 }
 
-.catalog-form label {
+.catalog-filter label {
   line-height: 20px;
 }
 
@@ -756,7 +798,7 @@ height: 2px;
 */
 
 
-.catalog-form ul,
+.catalog-filter ul,
 .catalog-sorter ul {
   list-style: none;
   margin: 0;
@@ -777,6 +819,13 @@ height: 2px;
   background-color: var(--button-soft-click);
   color: var(--basic-dark-30);
 }
+
+
+.catalog-sorter {
+  grid-row: 1 / 2;
+  grid-column: 2 / -1;
+}
+
 
 
 .sorter-type-list button {
@@ -828,6 +877,10 @@ height: 2px;
 /*форма треугольника, свг-картинки */
 /* cостояние пункта .current такое же как :active */
 
+.product-card {
+  grid-row: 2 / -1;
+  grid-column: 2 / -1;
+}
 
 .product-card-list {
   list-style: none;

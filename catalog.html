@@ -15,13 +15,15 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 
+
+
 <body class="page-body">
 
   <header class="main-header">
 
-    <div class="main-nav-bar">
+    <div class="bar">
 
-      <nav class="main-nav">
+      <nav class="main-nav container">
 
         <a class="main-logo" href="index.html">
           <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
@@ -51,186 +53,207 @@
   </header>
 
 
+  <main>
 
+    <h1 class="page-title bar">Магазин готовых шаблонов</h1>
 
+    <div class="catalog container">
 
+      <form class="catalog-filter" action="https://echo.htmlacademy.ru" method="get">
+        <h2 class="visually-hidden">Фильтры по критериям</h2>
 
+        <fieldset class="field-of-toddler">
+          <legend>Стоимость:</legend>
+          <label>от <input class="field" type="text" value="0"></label>
+          <label>до <input class="field" type="text" value="15 000"></label>
+          <!-- будет ползунок -->
+        </fieldset>
+        <fieldset>
+          <legend>Сетка:</legend>
+          <ul class="radiobutton">
+            <li><label><input type="radio" name="filter-grid" value="adaptive-grid" checked>Адаптивная</label></li>
+            <li><label><input type="radio" name="filter-grid" value="fixed-grid">Фиксированная</label></li>
+            <li><label><input type="radio" name="filter-grid" value="rubber-grid">Резиновая</label></li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Особенности:</legend>
+          <ul class="checkbox">
+            <li><label><input type="checkbox" name="filter-feature" value="slider-feature" checked>Слайдер</label>
+            </li>
+            <li><label><input type="checkbox" name="filter-feature" value="advantages-feature">Блок
+                преимуществ</label>
+            </li>
+            <li> <label><input type="checkbox" name="filter-feature" value="news-feature" checked>Новости</label></li>
+            <li><label><input type="checkbox" name="filter-feature" value="gallery-feature">Галерея</label></li>
+            <li> <label><input type="checkbox" name="filter-feature" value="basket-feature">Корзина</label></li>
+          </ul>
+        </fieldset>
+        <button class="button button-soft" type="submit">ПОКАЗАТЬ</button>
+      </form>
 
-  <main class="container">
+      <section class="catalog-sorter">
+        <h2 class="visually-hidden">Сортировка выбранного</h2>
+        <fieldset>
+          <legend>Сортировать:</legend>
+          <ul class="sorter-type-list">
+            <li><button type="button">По цене</button></li>
+            <li><button type="button">По типу</button></li>
+            <li><button type="button">По названию</button></li>
+          </ul>
+          <ul class="sorter-arrange-list">
+            <li> <button type="button">по убыванию</button></li>
+            <li><button type="button">по возрастанию</button></li>
+          </ul>
+        </fieldset>
+      </section>
 
-    <h1 class="page-title">Магазин готовых шаблонов</h1>
+      <section class="product-card">
+        <h2 class="visually-hidden">Каталог</h2>
 
-    <form class="catalog-form" action="https://echo.htmlacademy.ru" method="get">
-      <h2 class="visually-hidden">Фильтры по критериям</h2>
+        <ul class="product-card-list">
 
-      <fieldset class="field-of-toddler">
-        <legend>Стоимость:</legend>
-        <label>от <input class="field" type="text" value="0"></label>
-        <label>до <input class="field" type="text" value="15 000"></label>
-        <!-- будет ползунок -->
-      </fieldset>
-      <fieldset>
-        <legend>Сетка:</legend>
-        <ul class="radiobutton">
-          <li><label><input type="radio" name="filter-grid" value="adaptive-grid" checked>Адаптивная</label></li>
-          <li><label><input type="radio" name="filter-grid" value="fixed-grid">Фиксированная</label></li>
-          <li><label><input type="radio" name="filter-grid" value="rubber-grid">Резиновая</label></li>
-        </ul>
-      </fieldset>
-      <fieldset>
-        <legend>Особенности:</legend>
-        <ul class="checkbox">
-          <li><label><input type="checkbox" name="filter-feature" value="slider-feature" checked>Слайдер</label></li>
-          <li><label><input type="checkbox" name="filter-feature" value="advantages-feature">Блок преимуществ</label>
-          </li>
-          <li> <label><input type="checkbox" name="filter-feature" value="news-feature" checked>Новости</label></li>
-          <li><label><input type="checkbox" name="filter-feature" value="gallery-feature">Галерея</label></li>
-          <li> <label><input type="checkbox" name="filter-feature" value="basket-feature">Корзина</label></li>
-        </ul>
-      </fieldset>
-      <button class="button button-soft" type="submit">ПОКАЗАТЬ</button>
-    </form>
-
-    <section class="catalog-sorter">
-      <h2 class="visually-hidden">Сортировка выбранного</h2>
-      <fieldset>
-        <legend>Сортировать:</legend>
-        <ul class="sorter-type-list">
-          <li><button type="button">По цене</button></li>
-          <li><button type="button">По типу</button></li>
-          <li><button type="button">По названию</button></li>
-        </ul>
-        <ul class="sorter-arrange-list">
-          <li> <button type="button">по убыванию</button></li>
-          <li><button type="button">по возрастанию</button></li>
-        </ul>
-      </fieldset>
-    </section>
-
-    <section>
-      <h2 class="visually-hidden">Каталог</h2>
-
-      <ul class="product-card-list">
-
-        <li class="product-card-item">
-          <!-- плашка карточки активная 
+          <li class="product-card-item">
+            <!-- плашка карточки активная 
             class="product-card-top-spot"-->
-          <img src="img/card/card-sedona.jpg" width="358" height="578" alt="Главная страница сайта «Седона»">
-          <div class="product-card-info">
-            <!-- блок появляется при наведении/выборе -->
-            <!-- плашка под инфу о товаре-->
-            <h3><a href="blank.html">Sedona</a></h3>
-            <p>Информационный сайт<br>для туристов</p>
-            <button class="button" type="button">9 900 <span>₽</span></button>
-          </div>
-        </li>
+            <img src="img/card/card-sedona.jpg" width="358" height="578" alt="Главная страница сайта «Седона»">
+            <div class="product-card-info">
+              <!-- блок появляется при наведении/выборе -->
+              <!-- плашка под инфу о товаре-->
+              <h3><a href="blank.html">Sedona</a></h3>
+              <p>Информационный сайт<br>для туристов</p>
+              <button class="button" type="button">9 900 <span>₽</span></button>
+            </div>
+          </li>
 
-        <li class="product-card-item">
-          <!-- плашка карточки неактивная -->
-          <img src="img/card/card-pink.jpg" width="358" height="578" alt="«Главная страница приложения «Pink»">
-          <div class="product-card-info">
-            <!-- это скрыто на макете -->
-            <!-- плашка под инфу о товаре -->
-            <h3><a href="blank.html">Pink App</a></h3>
-            <p>Продуктовый лендинг<br>приложения для iOS и Android</p>
-            <button class="button" type="button">9 900 <span>₽</span></button>
-          </div>
-        </li>
+          <li class="product-card-item">
+            <!-- плашка карточки неактивная -->
+            <img src="img/card/card-pink.jpg" width="358" height="578" alt="«Главная страница приложения «Pink»">
+            <div class="product-card-info">
+              <!-- это скрыто на макете -->
+              <!-- плашка под инфу о товаре -->
+              <h3><a href="blank.html">Pink App</a></h3>
+              <p>Продуктовый лендинг<br>приложения для iOS и Android</p>
+              <button class="button" type="button">9 900 <span>₽</span></button>
+            </div>
+          </li>
 
-        <li class="product-card-item">
-          <!-- декоративная плашка карточки неактивная -->
-          <img src="img/card/card-barbershop.jpg" width="358" height="578"
-            alt="Главная страница сайта «Барбершоп «Бородинский»">
-          <div class="product-card-info">
-            <!-- это скрыто на макете -->
-            <!-- плашка под инфу о товаре -->
-            <h3><a href="blank.html">Barbershop</a></h3>
-            <p>Сайт салона красоты.<br>Для мужчин, да.</p>
-            <button class="button" type="button">9 900 <span>₽</span></button>
-          </div>
-        </li>
+          <li class="product-card-item">
+            <!-- декоративная плашка карточки неактивная -->
+            <img src="img/card/card-barbershop.jpg" width="358" height="578"
+              alt="Главная страница сайта «Барбершоп «Бородинский»">
+            <div class="product-card-info">
+              <!-- это скрыто на макете -->
+              <!-- плашка под инфу о товаре -->
+              <h3><a href="blank.html">Barbershop</a></h3>
+              <p>Сайт салона красоты.<br>Для мужчин, да.</p>
+              <button class="button" type="button">9 900 <span>₽</span></button>
+            </div>
+          </li>
 
-        <li class="product-card-item">
-          <!-- декоративная плашка карточки неактивная -->
-          <img src="img/card/card-mishka.jpg" width="358" height="578" alt="Главная страница сайта «Мишка»">
-          <div class="product-card-info">
-            <!-- это скрыто на макете -->
-            <!-- плашка под инфу о товаре -->
-            <h3><a href="blank.html">MISHKA</a></h3>
-            <p>Интернет-магазин<br>вязаных игрушек</p>
-            <button class="button" type="button">9 900 <span>₽</span></button>
-          </div>
-        </li>
+          <li class="product-card-item">
+            <!-- декоративная плашка карточки неактивная -->
+            <img src="img/card/card-mishka.jpg" width="358" height="578" alt="Главная страница сайта «Мишка»">
+            <div class="product-card-info">
+              <!-- это скрыто на макете -->
+              <!-- плашка под инфу о товаре -->
+              <h3><a href="blank.html">MISHKA</a></h3>
+              <p>Интернет-магазин<br>вязаных игрушек</p>
+              <button class="button" type="button">9 900 <span>₽</span></button>
+            </div>
+          </li>
 
-        <li class="product-card-item">
-          <!-- декоративная плашка карточки неактивная -->
-          <img src="img/card/card-aplus.jpg" width="358" height="578" alt="Главная страница лендинга «A Plus»">
-          <div class="product-card-info">
-            <!-- это скрыто на макете -->
-            <!-- плашка под инфу о товаре -->
-            <h3><a href="blank.html">A PLUS</a></h3>
-            <p>Лендинг курсов повышения<br>квалификации</p>
-            <button class="button" type="button">9 900 <span>₽</span></button>
-          </div>
-        </li>
+          <li class="product-card-item">
+            <!-- декоративная плашка карточки неактивная -->
+            <img src="img/card/card-aplus.jpg" width="358" height="578" alt="Главная страница лендинга «A Plus»">
+            <div class="product-card-info">
+              <!-- это скрыто на макете -->
+              <!-- плашка под инфу о товаре -->
+              <h3><a href="blank.html">A PLUS</a></h3>
+              <p>Лендинг курсов повышения<br>квалификации</p>
+              <button class="button" type="button">9 900 <span>₽</span></button>
+            </div>
+          </li>
 
-        <li class="product-card-item">
-          <!-- декоративная плашка карточки неактивная -->
-          <img src="img/card/card-kvast.jpg" width="358" height="578" alt="Главная страница сайта «Кваст»">
-          <div class="product-card-info">
-            <!-- это скрыто на макете -->
-            <!-- плашка под инфу о товаре -->
-            <h3><a href="blank.html">КВАСТ</a></h3>
-            <p>Промо-сайт производителя<br>крафтового кваса</p>
-            <button class="button" type="button">9 900 <span>₽</span></button>
-          </div>
-        </li>
+          <li class="product-card-item">
+            <!-- декоративная плашка карточки неактивная -->
+            <img src="img/card/card-kvast.jpg" width="358" height="578" alt="Главная страница сайта «Кваст»">
+            <div class="product-card-info">
+              <!-- это скрыто на макете -->
+              <!-- плашка под инфу о товаре -->
+              <h3><a href="blank.html">КВАСТ</a></h3>
+              <p>Промо-сайт производителя<br>крафтового кваса</p>
+              <button class="button" type="button">9 900 <span>₽</span></button>
+            </div>
+          </li>
 
-      </ul>
+        </ul>
 
-      <ul class="catalog-pagination-list">
-        <li><a class="button-pag current">1</a></li>
-        <li><a class="button button-soft button-pag" href="">2</a></li>
-        <li><a class="button button-soft button-pag" href="">3</a></li>
-        <li><a class="button button-soft button-pag" href="">Следующая</a></li>
-      </ul>
+        <ul class="catalog-pagination-list">
+          <li><a class="button-pag current">1</a></li>
+          <li><a class="button button-soft button-pag" href="">2</a></li>
+          <li><a class="button button-soft button-pag" href="">3</a></li>
+          <li><a class="button button-soft button-pag" href="">Следующая</a></li>
+        </ul>
 
-    </section>
+      </section>
+    </div>
 
   </main>
 
 
   <footer class="main-footer">
-    <h2 class="visually-hidden">Контактная информация</h2>
 
-    <section class="location">
+    <section class="location bar">
+
+      <h2 class="visually-hidden">Контактная информация</h2>
+
       <img class="map" src="img/map.jpg" width="1440" height="416" alt="На карте города">
-      <img class="map=marker" src="img/map-marker.png" width="231" height="190" alt="местонахождение студии">
-      <address class="contacts">
-        <p class="contacts-title">NЁRDS DESIGN STUDIO</p>
-        <p class="contacts-text">191186, Санкт-Петербург,<br>ул. Б. Конюшенная, д. 19/8</p>
-        <p>тел.<a class="contacts-tel" href="tel:+78122757575">+7 (812) 275-75-75</a></p>
-        <button class="button button-contacts" type="button">Напишите нам</button>
-      </address>
+
+      <div class="container">
+
+        <img class="map-marker" src="img/map-marker.png" width="231" height="190" alt="местонахождение студии">
+
+        <address class="contacts">
+          <p class="contacts-title">NЁRDS DESIGN STUDIO</p>
+          <p class="contacts-text">191186, Санкт-Петербург,<br>ул. Б. Конюшенная, д. 19/8</p>
+          <p>тел.<a class="contacts-tel" href="tel:+78122757575">+7 (812) 275-75-75</a></p>
+          <button class="button button-contacts" type="button">Напишите нам</button>
+        </address>
+
+      </div>
+
     </section>
 
-    <section class="social">
-      <h3 class="visually-hidden">Соцсети</h3>
-      <ul class="social-list">
-        <li class="social-item">
-          <a href="#">Вконтакте</a>
-        </li>
-        <li class="social-item">
-          <a href="#">Фейсбук</a>
-        </li>
-        <li class="social-item">
-          <a href="#">Инстаграм</a>
-        </li>
-      </ul>
-    </section>
-    <!-- декоративные иконки соцсетей вместо названий-->
-    <p class="social-header">Давайте дружить, это выгодно!</p>
-    <p class="social-text">Скидка 10% для друзей из социальных сетей.</p>
+    <div class="container">
+
+      <section class="social">
+
+        <div class="social-icons">
+          <h3 class="visually-hidden">Соцсети</h3>
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="#">Вконтакте</a>
+            </li>
+            <li class="social-item">
+              <a href="#">Фейсбук</a>
+            </li>
+            <li class="social-item">
+              <a href="#">Инстаграм</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- декоративные иконки соцсетей вместо названий-->
+
+        <div class=social-slogan>
+          <h3>Давайте дружить, это выгодно!</h3>
+          <p>Скидка 10% для друзей из социальных сетей.</p>
+        </div>
+
+      </section>
+
+    </div>
 
   </footer>
 

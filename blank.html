@@ -15,63 +15,94 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 
+
 <body class="page-body">
 
   <header class="main-header">
-    <a class="main-logo" href="index.html">
-      <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
-    </a>
-    <nav class="main-nav">
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a href="blank.html">Студия</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav" href="blank.html">Клиенты</a>
-        </li>
-        <li class="nav-item">
-          <a href="catalog.html">Магазин</a>
-        </li>
-        <li class="nav-item">
-          <a href="blank.html">Контакты</a>
-        </li>
-      </ul>
 
-      <a class="nav-basket" href="blank.html">Корзина</a>
-    </nav>
+    <div class="bar">
+
+      <nav class="main-nav container">
+
+        <a class="main-logo" href="index.html">
+          <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
+        </a>
+
+        <ul class="site-nav-list">
+          <li>
+            <a href="blank.html">Студия</a>
+          </li>
+          <li>
+            <a href="blank.html">Клиенты</a>
+          </li>
+          <li>
+            <a href="catalog.html">Магазин</a>
+          </li>
+          <li>
+            <a href="blank.html">Контакты</a>
+          </li>
+        </ul>
+
+        <div class="user-nav">
+          <a class="nav-basket" href="blank.html">Корзина</a>
+        </div>
+      </nav>
+    </div>
+
   </header>
 
   <footer class="main-footer">
-    <h2 class="visually-hidden">Контактная информация</h2>
 
-    <section class="location">
+    <section class="location bar">
+
+      <h2 class="visually-hidden">Контактная информация</h2>
+
       <img class="map" src="img/map.jpg" width="1440" height="416" alt="На карте города">
-      <img class="map=marker" src="img/map-marker.png" width="231" height="190" alt="местонахождение студии">
-      <address class="contacts">
-        <p class="contacts-title">NЁRDS DESIGN STUDIO</p>
-        <p class="contacts-text">191186, Санкт-Петербург,<br>ул. Б. Конюшенная, д. 19/8</p>
-        <p>тел.<a class="contacts-tel" href="tel:+78122757575">+7 (812) 275-75-75</a></p>
-        <button class="button button-contacts" type="button">Напишите нам</button>
-      </address>
+
+      <div class="container">
+
+        <img class="map-marker" src="img/map-marker.png" width="231" height="190" alt="местонахождение студии">
+
+        <address class="contacts">
+          <p class="contacts-title">NЁRDS DESIGN STUDIO</p>
+          <p class="contacts-text">191186, Санкт-Петербург,<br>ул. Б. Конюшенная, д. 19/8</p>
+          <p>тел.<a class="contacts-tel" href="tel:+78122757575">+7 (812) 275-75-75</a></p>
+          <button class="button button-contacts" type="button">Напишите нам</button>
+        </address>
+
+      </div>
+
     </section>
 
-    <section class="social">
-      <h3 class="visually-hidden">Соцсети</h3>
-      <ul class="social-list">
-        <li class="social-item">
-          <a href="#">Вконтакте</a>
-        </li>
-        <li class="social-item">
-          <a href="#">Фейсбук</a>
-        </li>
-        <li class="social-item">
-          <a href="#">Инстаграм</a>
-        </li>
-      </ul>
-    </section>
-    <!-- декоративные иконки соцсетей вместо названий-->
-    <p class="social-header">Давайте дружить, это выгодно!</p>
-    <p class="social-text">Скидка 10% для друзей из социальных сетей.</p>
+    <div class="container">
+
+      <section class="social">
+
+        <div class="social-icons">
+          <h3 class="visually-hidden">Соцсети</h3>
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="#">Вконтакте</a>
+            </li>
+            <li class="social-item">
+              <a href="#">Фейсбук</a>
+            </li>
+            <li class="social-item">
+              <a href="#">Инстаграм</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- декоративные иконки соцсетей вместо названий-->
+
+        <div class=social-slogan>
+          <h3>Давайте дружить, это выгодно!</h3>
+          <p>Скидка 10% для друзей из социальных сетей.</p>
+        </div>
+
+      </section>
+
+    </div>
 
   </footer>
 
