@@ -123,13 +123,15 @@ img {
 .container {
   width: 1160px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 20px;
 }
 
 .main-nav {
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: max-content 1fr max-content;
-  padding: 49px 0 31px 0;
+  padding: 48px 0 39px 0;
+  /* height: 114px; */
 
   /* <!-- для унификации высоты меню, сделать паддинг блока меню внизу (сейчас в стилях 0),
   а у следующих блоков - отрицательный, если он ляжет поверх. --> */
@@ -189,10 +191,18 @@ img {
 
 .site-nav-list {
   list-style: none;
-  display: grid;
+  padding: 0 286px 0 202px;
+  margin: 0; 
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+ 
+  /* display: grid;
   grid-template-columns: repeat(4, auto);
   padding: 0 286px 0 202px;
-  margin: 0;
+  margin: 0; */
 
   /* outline: 5px solid rgba(9, 255, 0, 0.7);
   outline-offset: -5px; */
@@ -208,6 +218,8 @@ img {
 .user-nav {
   /* outline: 5px solid rgba(0, 195, 255, 0.7);
   outline-offset: -5px; */
+  display: flex;
+  align-items: center;
 }
 
 /*.nav-basket навесить иконку  */
@@ -221,14 +233,16 @@ img {
 }
 
 .slider {
+  box-sizing: border-box;
   padding: 39px 0 78px 0;
+  /* height: 431px; */
 
   /* outline: 5px solid rgba(255, 0, 64, 0.7);
   outline-offset: -5px; */
 }
 
 /* можно сделать сетку из 6fr c  перекрытием центральных колонок (в учебнике подобное есть). или без гридов вообще тут лучше? */
-/* верзхний отступ 78-39=39 - см. выше */
+/* верхний отступ 78-39=39 - см. выше */
 .slider-control {
   margin: 0 auto;
   padding: 0;
@@ -362,7 +376,7 @@ img {
   margin-bottom: 32px;
 }
 
-/* не точный отступ полчаетися до конпки. но почему? по верхним граница должно совпасть */
+/* не точный отступ получаетися до конпки. но почему? по верхним граница должно совпасть */
 
 .service-app-button {
   background-color: var(--accent-app);
@@ -388,9 +402,15 @@ img {
   background-color: var(--accent-pres-click);
 }
 
-/* отсюда ПП едед по высоте, т,к. еще не сделаны кнопки, их высота не учтена */
+/* отсюда ПП едет по высоте, т,к. еще не сделаны кнопки, их высота не учтена */
 
 .about {
+/* box-sizing: border-box;
+height: 529px;
+display: flexbox;
+justify-content: space-around;
+align-items: stretch; */
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
@@ -407,6 +427,7 @@ img {
 .about-us {
   grid-column: 1 / 3;
 
+  display: flexbox;
   /* outline: 5px solid rgba(255, 230, 0, 0.7);
   outline-offset: -5px; */
 
@@ -456,6 +477,9 @@ height: 2px;
 .about-progress {
   grid-column: 3 / 4;
   text-align: center;
+
+  display: flexbox;
+
 }
 
 
@@ -587,7 +611,7 @@ height: 2px;
 /* по линиям опять уезжают отступы почему... */
 
 .location {
-  min-width: 1200;
+  min-width: 1200px;
   text-align: center;
 }
 
