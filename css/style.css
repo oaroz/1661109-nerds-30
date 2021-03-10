@@ -32,6 +32,7 @@
   --basic-dark-0001: rgba(0, 0, 0, 0.0001);
   --basic-dark-10: rgba(0, 0, 0, 0.1);
   --basic-dark-20: rgba(0, 0, 0, 0.2);
+  --basic-dark-25: rgba(0, 0, 0, 0.25);
   --basic-dark-30: rgba(0, 0, 0, 0.3);
   --basic-light: #FFFFFF;
   --basic-light-30: rgba(255, 255, 255, 0.3);
@@ -86,11 +87,19 @@
 }
 
 /* index */
-
+a {
+  text-decoration: none;
+}
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .page {
@@ -98,7 +107,6 @@ img {
 }
 
 .page-body {
-  min-width: 1200px;
   margin: 0;
   padding: 0;
 
@@ -123,14 +131,20 @@ img {
 .container {
   width: 1160px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding-left: 0;
+  padding-right: 0; */
 }
+
+.main-header {
+  background-color: var(--basic-grey);
+}
+
 
 .main-nav {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: max-content 1fr max-content;
-  padding: 48px 0 39px 0;
+  padding: 49px 0 39px 0;
   /* height: 114px; */
 
   /* <!-- для унификации высоты меню, сделать паддинг блока меню внизу (сейчас в стилях 0),
@@ -147,9 +161,10 @@ img {
   outline-offset: -5px; */
 }
 
-.main-logo {
-  /* outline: 5px solid rgba(255, 17, 0, 0.7);
-  outline-offset: -5px; */
+.main-nav .main-logo {
+  line-height: 10px;
+  outline: 5px solid rgba(255, 17, 0, 0.7);
+  outline-offset: -5px;
 }
 
 .main-logo:hover {
@@ -191,21 +206,21 @@ img {
 
 .site-nav-list {
   list-style: none;
-  padding: 0 286px 0 202px;
-  margin: 0; 
+  padding: 20px 286px 0 202px;
+  margin: 0;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
- 
+
+
   /* display: grid;
   grid-template-columns: repeat(4, auto);
   padding: 0 286px 0 202px;
   margin: 0; */
 
-  /* outline: 5px solid rgba(9, 255, 0, 0.7);
-  outline-offset: -5px; */
+  outline: 5px solid rgba(9, 255, 0, 0.7);
+  outline-offset: -5px;
 }
 
 /* в ПП кривовато из-за выключки влево по колонке, сделаю после на флексах, чтоб разогнать по ширине блока */
@@ -216,10 +231,12 @@ img {
 }
 
 .user-nav {
-  /* outline: 5px solid rgba(0, 195, 255, 0.7);
-  outline-offset: -5px; */
+  outline: 5px solid rgba(0, 195, 255, 0.7);
+  outline-offset: -5px;
   display: flex;
   align-items: center;
+
+  padding-top: 20px;
 }
 
 /*.nav-basket навесить иконку  */
@@ -337,7 +354,8 @@ img {
 }
 
 .service {
-  padding: 80px 0 82px 0;
+  padding-top: 80px;
+  padding-bottom: 82px;
 
   /* 80 нижний отступ +2 толщина линии */
 
@@ -405,16 +423,17 @@ img {
 /* отсюда ПП едет по высоте, т,к. еще не сделаны кнопки, их высота не учтена */
 
 .about {
-/* box-sizing: border-box;
+  /* box-sizing: border-box;
 height: 529px;
-display: flexbox;
+display: flex;
 justify-content: space-around;
 align-items: stretch; */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
-  padding: 73px 0 75px 0;
+  padding-top: 73px;
+  padding-bottom: 75px;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
@@ -427,7 +446,7 @@ align-items: stretch; */
 .about-us {
   grid-column: 1 / 3;
 
-  display: flexbox;
+  display: flex;
   /* outline: 5px solid rgba(255, 230, 0, 0.7);
   outline-offset: -5px; */
 
@@ -478,8 +497,7 @@ height: 2px;
   grid-column: 3 / 4;
   text-align: center;
 
-  display: flexbox;
-
+  display: flex;
 }
 
 
@@ -547,7 +565,8 @@ height: 2px;
 /* выровнять низ колонок. см выше */
 
 .partners {
-  padding: 46px 0 126px 0;
+  padding-top: 46px;
+  padding-bottom: 126px;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
@@ -741,17 +760,18 @@ height: 2px;
 }
 
 .catalog {
-  padding: 55px 0 60px 0;
+  padding-top: 55px;
+  padding-bottom: 60px;
 
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 260px 1fr;
   grid-column-gap: 140px;
 }
 
 .catalog-filter {
-grid-row: 1 / -1;
-grid-column: 1/ 2;
+  grid-row: 1 / -1;
+  grid-column: 1/ 2;
 }
 
 /* .catalog-filter fieldset{} */
@@ -848,6 +868,8 @@ grid-column: 1/ 2;
 .catalog-sorter {
   grid-row: 1 / 2;
   grid-column: 2 / -1;
+
+  margin: 0 0 48px 0;
 }
 
 
@@ -904,15 +926,39 @@ grid-column: 1/ 2;
 .product-card {
   grid-row: 2 / -1;
   grid-column: 2 / -1;
+
+  outline: 5px solid rgba(76, 0, 255, 0.7);
+  outline-offset: -5px;
 }
 
 .product-card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 31px;
   list-style: none;
+  padding: 0;
+  margin: 0 0 55px 0;
+
+  line-height: 0;
+
+  outline: 5px solid rgba(0, 255, 34, 0.7);
+  outline-offset: -5px;
 }
 
-/* .product-card-item */
-/* .product-card-item img */
+.product-card-item {
+  outline: 5px solid rgba(255, 0, 149, 0.7);
+  outline-offset: -5px;
+}
 
+.product-card-item:hover {
+  filter: drop-shadow(0px 6px 15px var(--basic-dark-25));
+}
+
+.product-card-item img {
+  outline: 5px solid rgba(0, 238, 255, 0.7);
+  outline-offset: -5px;
+}
 
 .product-card-top-spot {
   /* var(--checkbox); */
@@ -923,11 +969,18 @@ grid-column: 1/ 2;
   background-color: var(--basic-grey);
 }
 
-/* для целостости карточки, если не загружается картинка */
+/* для целостности карточки, если не загружается картинка */
 
 .product-card-info {
   background-color: var(--basic-grey);
   text-align: center;
+
+  padding: 26px 53px 44px 52px;
+  margin: 0;
+
+  outline: 5px solid rgba(21, 255, 0, 0.7);
+  outline-offset: -5px;
+
   /* opacity: 0; */
   /*или visible: hidden */
 }
@@ -947,12 +1000,16 @@ grid-column: 1/ 2;
 открывается тлько по наведению на информацию)
  */
 
+.product-card-info h3 {
+  padding: 0;
+  margin: 0;
+}
+
 .product-card-info a {
   font-weight: 700;
   font-size: 18px;
   line-height: 30px;
   text-transform: uppercase;
-  text-decoration: none;
   color: var(--basic-dark);
 }
 
@@ -976,6 +1033,11 @@ width: 200px;height: 50px;*/
 
 .catalog-pagination-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
+
+  outline: 5px solid rgba(145, 255, 0, 0.7);
+  outline-offset: -5px;
 }
 
 .catalog-pagination-list a {
