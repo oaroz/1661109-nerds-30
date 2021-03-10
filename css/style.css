@@ -446,7 +446,6 @@ align-items: stretch; */
 .about-us {
   grid-column: 1 / 3;
 
-  display: flex;
   /* outline: 5px solid rgba(255, 230, 0, 0.7);
   outline-offset: -5px; */
 
@@ -496,8 +495,6 @@ height: 2px;
 .about-progress {
   grid-column: 3 / 4;
   text-align: center;
-
-  display: flex;
 }
 
 
