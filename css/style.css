@@ -293,7 +293,7 @@ img {
 }
 
 .slider-control button {
-  /* padding: 0; */
+  padding: 0;
   width: 18px;
   height: 18px;
   background: var(--basic-light);
@@ -303,9 +303,9 @@ img {
   position: relative;
 }
 
-.slider-control .control-button-current,
-.slider-control:hover button,
-.slider-control:active button {
+ .control-button-current,
+ .control-button:hover,
+ .control-button:active  {
   box-shadow: inset 0 0 0 5px var(--basic-light), inset 0 0 0 7px var(--switcher-active);
 }
 
