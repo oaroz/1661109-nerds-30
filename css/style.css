@@ -50,7 +50,7 @@
   --button-soft-hover: #DFDFDF;
   --button-soft-click: #D5D5D5;
 
-  --stitcher-active: #C1C1C1;
+  --switcher-active: #C1C1C1;
 
   --pagin-stroke: #DBDBDB;
 
@@ -107,6 +107,7 @@ img {
 }
 
 .page-body {
+  min-width: 1200px;
   margin: 0;
   padding: 0;
 
@@ -123,39 +124,25 @@ img {
 }
 
 .bar {
-  /* min-width: 1200px; */
-  /* это указано в body, тут излишне? */
   background-color: var(--basic-grey);
-}
-
-.container {
-  width: 1160px;
-  margin: 0 auto;
-  /* padding-left: 0;
-  padding-right: 0; */
 }
 
 .main-header {
-  background-color: var(--basic-grey);
+  padding-top: 49px;
 }
 
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 .main-nav {
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  padding: 49px 0 39px 0;
-  /* height: 114px; */
-
-  /* <!-- для унификации высоты меню, сделать паддинг блока меню внизу (сейчас в стилях 0),
-  а у следующих блоков - отрицательный, если он ляжет поверх. --> */
-
-  /* выровнять потомков по вертикали - позиционирование*/
-
-  /* 39*2=78 отступ в каталоге от меню (не учитвая палку правда пока) до заголовка, делим на 2, 
-  унифицируем - чтоб в бланке был фон ниже меню.
-  возможно, картинка дает инт-ж, см. далее такая ситуация. 
-  надо вычесть из оступа разницу между инт-м и кеглем текста (24-16=8), от которого идет оступ (тут body)*/
+  /* display: grid;
+  grid-template-columns: max-content 1fr max-content; */
+  display: flex;
+  justify-content: space-between;
 
   /* outline: 5px solid rgba(76, 0, 255, 0.7);
   outline-offset: -5px; */
@@ -163,8 +150,9 @@ img {
 
 .main-nav .main-logo {
   line-height: 10px;
-  outline: 5px solid rgba(255, 17, 0, 0.7);
-  outline-offset: -5px;
+
+  /* outline: 5px solid rgba(255, 17, 0, 0.7);
+  outline-offset: -5px; */
 }
 
 .main-logo:hover {
@@ -176,6 +164,7 @@ img {
 }
 
 .main-nav a {
+  display: block;
   text-decoration: none;
   font-size: 16px;
   line-height: 30px;
@@ -206,40 +195,69 @@ img {
 
 .site-nav-list {
   list-style: none;
-  padding: 20px 286px 0 202px;
-  margin: 0;
+  width: 437px;
+  margin: 0 44px 0 0;
+  padding: 26px 0 0 0;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-
 
   /* display: grid;
   grid-template-columns: repeat(4, auto);
-  padding: 0 286px 0 202px;
-  margin: 0; */
+  justify-content: space-between;
+    padding: 26px 246px 0 202px;
+ */
 
-  outline: 5px solid rgba(9, 255, 0, 0.7);
-  outline-offset: -5px;
+
+  /* outline: 5px solid rgba(9, 255, 0, 0.7);
+  outline-offset: -5px; */
 }
 
-/* в ПП кривовато из-за выключки влево по колонке, сделаю после на флексах, чтоб разогнать по ширине блока */
-
 .site-nav-list li {
+  /* outline: 5px solid rgba(0, 195, 255, 0.7);
+  outline-offset: -5px; */
+
   padding: 0;
   margin: 0;
 }
 
 .user-nav {
-  outline: 5px solid rgba(0, 195, 255, 0.7);
-  outline-offset: -5px;
-  display: flex;
-  align-items: center;
+  maх-width: 115px;
+  position: relative;
 
-  padding-top: 20px;
+  /* узнать при переполнении чтоб не сломалось, что делать */
+
+  /* outline: 5px solid rgba(0, 195, 255, 0.7);
+  outline-offset: -5px; */
+
+  padding-top: 26px;
+  padding-left: 40px;
 }
 
-/*.nav-basket навесить иконку  */
+.nav-basket::before {
+
+  /* outline: 5px solid rgba(0, 195, 255, 0.7);
+  outline-offset: -5px; */
+
+  content: "";
+  position: absolute;
+  top: 33px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background-image: url("..//img/basket-icon.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.nav-basket:hover::before,
+.nav-basket:active::before {
+  opacity: 1;
+}
+
+/* иконка по ховеру становится прозрачность как и вся ссылка. 
+а по стайлгайду не должна. так не получается - специфичность мешает что ли??*/
 
 .visually-hidden {
   position: absolute;
@@ -250,58 +268,54 @@ img {
 }
 
 .slider {
-  box-sizing: border-box;
-  padding: 39px 0 78px 0;
-  /* height: 431px; */
+  padding-top: 78px;
+  padding-bottom: 80px;
+  position: relative;
 
-  /* outline: 5px solid rgba(255, 0, 64, 0.7);
-  outline-offset: -5px; */
+
+  /* outline: 5px solid rgba(255, 0, 64, 0.7); */
+  outline-offset: -5px;
 }
 
-/* можно сделать сетку из 6fr c  перекрытием центральных колонок (в учебнике подобное есть). или без гридов вообще тут лучше? */
-/* верхний отступ 78-39=39 - см. выше */
 .slider-control {
-  margin: 0 auto;
-  padding: 0;
-  /*  спозиционировать  по низу блока */
+  position: absolute;
+  left: 50%;
+  margin-left: -44px;
+  bottom: 96px;
+  z-index: 20;
 
-  z-index: 4;
-  /* 
-  outline: 5px solid rgba(212, 0, 255, 0.7);
+  /* outline: 5px solid rgba(212, 0, 255, 0.7);
   outline-offset: -5px; */
+
+  width: 88px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .slider-control button {
-  margin: 0;
-  padding: 0;
+  /* padding: 0; */
+  width: 18px;
+  height: 18px;
+  background: var(--basic-light);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
 }
 
-/* позиционирование и визуал будут в след. дом.заданиях, пока так */
-/* мб тут будет другой способ, проще (флексы?)*/
-
-/* .slider-control button
- убрать визуал кнопки, навесить кружки
-     width: 18px;
-     height: 18px;
-     background: --basic-light; 
-     состояние покоя
+.slider-control .control-button-current,
+.slider-control:hover button,
+.slider-control:active button {
+  box-shadow: inset 0 0 0 5px var(--basic-light), inset 0 0 0 7px var(--switcher-active);
 }
-.slider-control button:active {
-     width: 8px;
-     height: 8px;
-     border: 2px solid var(--switcher-active);
-} добавляется сверху по клику 
-*/
 
 .slide-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 
   /* outline: 5px solid rgba(0, 255, 0, 0.7);
   outline-offset: -5px; */
-
-  /* z-index: 1; */
 }
 
 .slide-list h3 {
@@ -310,11 +324,18 @@ img {
   line-height: 55px;
   color: var(--basic-dark);
   margin: 0 0 25px 0;
+  padding-right: 645px;
+
 }
 
 .slide-list p {
-  margin: 0 0 38px 0;
+  margin-bottom: 38px;
+  padding-right: 745px;
 }
+
+/* тут попытка уницировать для контент-менеджеров, кмк, тщетна.
+текст ложится на картинку. если тольуо допустить это в перспективе. 
+или строго по колонкам поделить - текст-картинка */
 
 .slide-none {
   display: none;
@@ -324,7 +345,35 @@ img {
   display: block;
 }
 
+.slide-1::after,
+.slide-2::after,
+.slide-3::after {
+  position: absolute;
+  content: "";
+  width: 760px;
+  height: 431px;
+  right: 22px;
+  bottom: 0;
+
+  /* outline: 5px solid rgba(0, 195, 255, 0.7);
+  outline-offset: -5px; */
+
+  background-image: url("..//img/advantage-slide1.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.slide-2::after {
+  background-image: url("..//img/advantage-slide2.png");
+}
+
+.slide-3::after {
+  background-image: url("..//img/advantage-slide3.png");
+}
+
 .button {
+  display: inline-block;
+
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
@@ -336,12 +385,12 @@ img {
   background-color: var(--accent);
   border: none;
   border-radius: 3px;
-}
 
-/* кнопку позже сделать, возможно так, почитать:
-    display: block; или inline-block.
-  и отступы, чтобы добиться width: 240px; height: 50px; 
-  проблема с доп. навешиванием прозрачности не решается*/
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 54px;
+  padding-right: 54px;
+}
 
 .button:hover {
   background-color: var(--accent-hover);
@@ -354,10 +403,34 @@ img {
 }
 
 .service {
+  position: relative;
   padding-top: 80px;
   padding-bottom: 82px;
-
   /* 80 нижний отступ +2 толщина линии */
+
+  /* border-bottom: 2px solid var(--basic-grey); */
+  /* как забрать по краям?? тогда бы получилось просто
+  как дать паддинги именно линии, а не ее блоку?*/
+
+  /* outline: 5px solid rgba(0, 255, 0, 0.7);
+  outline-offset: -5px; */
+}
+
+.service::after,
+.about::after,
+.partners::after {
+  position: absolute;
+  content: "";
+  width: 1160px;
+  height: 2px;
+  background-color: var(--basic-grey);
+  bottom: 0;
+  /* outline: 5px solid rgba(0, 255, 0, 0.7);
+  outline-offset: -5px; */
+}
+
+.partners::after {
+  bottom: 80px;
 
   /* outline: 5px solid rgba(0, 255, 0, 0.7);
   outline-offset: -5px; */
@@ -394,7 +467,10 @@ img {
   margin-bottom: 32px;
 }
 
-/* не точный отступ получаетися до конпки. но почему? по верхним граница должно совпасть */
+.service-list .button {
+  padding-left: 40px;
+  padding-right: 40px;
+}
 
 .service-app-button {
   background-color: var(--accent-app);
@@ -420,31 +496,27 @@ img {
   background-color: var(--accent-pres-click);
 }
 
-/* отсюда ПП едет по высоте, т,к. еще не сделаны кнопки, их высота не учтена */
-
 .about {
-  /* box-sizing: border-box;
-height: 529px;
-display: flex;
-justify-content: space-around;
-align-items: stretch; */
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
-  padding-top: 73px;
-  padding-bottom: 75px;
+  grid-gap: 40px; */
+
+  padding-top: 39px;
+  padding-bottom: 77px;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
-
 }
 
-/* 73 нижний отступ + 2 толщина линии */
-/* обе колонки и about должны быть выровнены по низу колоки progress. флексы? */
 
 .about-us {
-  grid-column: 1 / 3;
+  /* grid-column: 1 / 3; */
+
+  width: 660px;
 
   /* outline: 5px solid rgba(255, 230, 0, 0.7);
   outline-offset: -5px; */
@@ -456,62 +528,61 @@ align-items: stretch; */
   font-size: 45px;
   line-height: 45px;
   color: var(--basic-dark);
-  margin: 0 0 32px 0;
+  margin-top: 34px;
+  margin-bottom: 32px;
 }
 
 .about-us p {
-  margin: 0 0 40px 0;
+  margin-bottom: 40px;
 }
 
 .about-us h4 {
   font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
-  margin: 0 0 23px 0;
+  margin-bottom: 21px;
+  ;
 }
-
-/* ПП уезжает, но отсутпы точные! - почему?? */
 
 .about-us-list {
   list-style: none;
-  padding: 0;
+  padding: 0 0 0 37px;
   margin: 0;
 }
 
-/* .about-us-list li {
-  margin: 0;
-} */
-
-/* вместо этого выключить блок about-us-list по формату по вертикали */
-
-
-/* .about-us-list { 
-буллитом линию + пробел, учесть расстояния внутри бокса до текста в Фигме
-width: 25px;
-height: 2px;
-цвет линии: var(--accent); 
+.about-us-list li {
+  position: relative;
 }
-*/
+
+.about-us-list li:not(:last-child) {
+  margin-bottom: 23px;
+}
+
+
+.about-us-list li::before {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 2px;
+  background-color: rgba(255, 17, 0, 0.7);
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  left: -37px;
+  top: 10px;
+}
+
 .about-progress {
-  grid-column: 3 / 4;
+  /* grid-column: 3 / 4; */
   text-align: center;
 }
 
 
 .about-progress img {
-  margin: -34px 0 29px 0;
+  margin-bottom: 29px;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
 }
-
-/*  лого стоит точно на своей позиции,
-расстояние между ним и h4 точно вымерено.
-почему уехало?? 
-*/
-
-/* возможно, картинка дает инт-ж... ?? надо вычесть из отступа разницу между инт-м и кеглем текста, от которого идет оступ (тут body 24-16=8,37 (реальный отступ после картинки)-8=29), */
-
 
 
 .about-progress h4 {
@@ -530,6 +601,13 @@ height: 2px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
+  /* display: flex;
+  width: 360px;
+  justify-content: space-between;
+  flex-wrap: wrap; */
+  /* ширина блоков разная флексами получится дольше ровнять колонки, 
+  гридами проще - там сразу равные три колонки */
+
   /* outline: 5px solid rgba(0, 255, 0, 0.7);
   outline-offset: -5px; */
 }
@@ -537,31 +615,37 @@ height: 2px;
 .about-progress-item {
   text-align: left;
   margin: 0;
+  padding: 0;
+
+  /* outline: 5px solid rgba(34, 0, 255, 0.7);
+  outline-offset: -5px; */
+
 }
 
+.about-progress-item p {
+  line-height: 18px;
+  padding: 0;
+  margin: 0;
+}
 
 .about-progress-item .about-progress-dig {
   font-weight: 700;
   font-size: 45px;
   line-height: 64px;
   color: var(--basic-dark);
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
 }
 
-/* да что за чудеса оять с отспупом до текста?? в чем причина?? */
+/* без 1-го селетора слетают отстпуы - понять, почему */
 
 .about-progress-dig sup {
-  /* понизить базовую линию!!! из-за своего кегля и инт-жа в макете на отдельный символ %, 
-  она своя, не как у стандартного верхнего индекса. или рассчитать от инт-жа сразу */
+  font-size: 0.6em;
+  /* vertical-align: -6px; */
 }
-
-.about-progress-item p {
-  line-height: 18px;
-}
-
-/* выровнять низ колонок. см выше */
 
 .partners {
+  position: relative;
+
   padding-top: 46px;
   padding-bottom: 126px;
 
@@ -569,35 +653,59 @@ height: 2px;
   outline-offset: -5px; */
 }
 
-/* отсуп сверху встанет на место, когда выровняем низ колонок в верхнем блоке */
-/* bottom 44px до линии, 2px линия, 80px до футера. (у футера сверху 0 остутп по всем страницам) */
-
-/* от верхней  линий абсолютно  точные 46 px по макету ) , 
-но в ПП логотип с усами, по которому ровняли, уехал вниз! почему??? ПОМТОУ ЧТО ТОЛЩИНА ЛИНИИ ЕЩЕ2 px
-
-а от усов до карты д.б. 126 px, что в сумме прописано. но уезжает! */
-
 .partners-list {
+
   list-style: none;
+  line-height: 5px;
   padding: 0;
+  margin: 0;
 
   display: grid;
   grid-template-columns: 281px 300px 300px 281px;
   text-align: center;
+  align-items: center;
+
+  /* outline: 5px solid rgba(0, 255, 0, 0.7);
+  outline-offset: -5px; */
+
 }
-
-/* оставлю пока не (4, 1fr)?  у меня есть мысль с позиционировнаием и палками */
-
-/* центровка блока + разделители - сравнить с макетом*/
-/* 1-й лого padding-left: 32px; text-align: left;
-  последний padding-right: 43; text-align: right; через ::?*/
-/* кстати в макете центровка кривая у 2-3 элементов, да и вообще у всех в блоке */
-/* центровать по вертикали руками, в макете гоняли это растояние (м.б. будут флексы или похзиционирование, тогда.) */
-
 
 .partners-list a {
   text-decoration: none;
 }
+
+.partners-list li {
+  position: relative;
+
+  /* outline: 5px solid rgba(255, 0, 183, 0.7);
+  outline-offset: -5px; */
+}
+
+.partners-list li:first-child {
+  text-align: left;
+  padding-left: 32px;
+  padding-top: 10px;
+}
+
+.partners-list li:last-child {
+  text-align: right;
+  padding-right: 42px;
+}
+
+.partners-list li:not(:last-child)::after {
+  /* border-right: 2px solid var(--basic-grey); */
+  /* можно ли делать отступы у линии? был бы вариант */
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 52px;
+  background-color: var(--basic-grey);
+  right: 0;
+  top: 50%;
+  margin-top: -26px;
+
+}
+
 
 .partners-list img {
   opacity: 0.2;
@@ -618,37 +726,46 @@ height: 2px;
   outline-offset: -5px; */
 }
 
-/* тут по промерам padding: 80px 0 0 0;
-в Каталоге padding: 60px 0 0 0; 
-чтобы унифицировать отступ футера в стилях для всех страниц, 
-задаем в Партнерах снизу больше на 20 и сместим празделитель с верт.центра
- */
+/* .location {
+} */
 
-/* по линиям опять уезжают отступы почему... */
-
-.location {
-  min-width: 1200px;
-  text-align: center;
+.map-position {
+  position: relative;
+  height: 416px;
 }
 
-/* карта на всю ширину экрана интерактивная:
-  если не загрузится карта, будет фон.
-  если ИА-карта не загрузится, будет фото карты и фон. */
+/* как они должна себя всети без ИА и с ИА?? */
+/* кмк карта не должна увеличиваться (тогда и элементы тоже), а должен появляться серый фон по краям, 
+и все эемеенты на ней оставаться на своих месатх. */
 
-.map {}
+.map {
+  position: absolute;
+  min-width: 1440px;
+  top: 0;
+  left: 50%;
+  margin-left: -720px;
+}
 
-.map-marker {}
+.map-marker {
+  position: absolute;
+  width: 231px;
+  height: 190px;
+  top: 86px;
+  left: 702px;
+
+  /* outline: 5px solid rgba(255, 0, 64, 0.7);
+  outline-offset: -5px; */
+}
 
 .contacts {
+  position: absolute;
+  top: 54px;
+  left: 20px;
+
   width: 319px;
   height: 308px;
   padding: 49px 39px 47px 50px;
   margin: 0;
-
-  /* какая-то ерунда с размерами по факту получается, хотя измерено правильно...
-  заголовок поэтому центруется по неправильной ширине плашки */
-
-  /* как позиционировать пин на ИА карте, она же масштабируется и двигается - скрипты? */
 
   color: var(--card-text);
   background-color: var(--basic-light);
@@ -656,31 +773,41 @@ height: 2px;
   text-align: left;
 }
 
-.contacts-title {
+.contacts p {
+  margin: 0;
+}
+
+.contacts .contacts-title {
   font-weight: 700;
   font-size: 18px;
   line-height: 30px;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   color: var(--basic-dark);
-  margin: 0 0 23px 0;
+  margin-bottom: 23px;
 }
 
-.contacts-text {
+.contacts .contacts-text {
   line-height: 18px;
+  margin-bottom: 14px;
+
 }
 
 .contacts-tel {
+  display: inline-block;
   color: inherit;
+  line-height: 18px;
   text-decoration: none;
-  margin: 0 0 37px 0;
+  margin-bottom: 37px;
+}
+
+.button-contacts {
+  padding-left: 44px;
+  padding-right: 44px;
 }
 
 .social {
-  padding: 68px 0 0 0;
-
-  /* нижня граница после вставки иконок будет ниже. 68px! 
-  от низа карты до низа футера д.б 225 px*/
+  padding-top: 75px;
 
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -700,29 +827,43 @@ height: 2px;
   grid-column: 2 / -1;
 }
 
+.social-slogan h3 {
+  margin: 0;
+  padding: 0;
+}
+
 .social-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: -7px 0 0 0;
 
   /* outline: 5px solid rgba(4, 0, 255, 0.7);
   outline-offset: -5px; */
 
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
+  /* display: grid;
+  grid-template-columns: auto auto auto; */
 
-/* тут наверное флексами расятнуть на ширину блока родителя просто */
+  display: flex;
+  width: 261px;
+  justify-content: space-between;
+}
 
 .social-item a {
   text-decoration: none;
-  color: var(--social);
+  display: inline-block;
 }
 
-/* .social-item a:hover,
-.social-item a:active
-= состояниям акцентной кнопки. иконики=текст + фон*/
-/*  убрать названия и повесить иконки */
+.social-button {
+  width: 81px;
+  height: 81px;
+  border-radius: 50%;
+  padding: 0;
+  background-color: var(--social);
+}
+
+.social-button img:active {
+  opacity: 0.3
+}
 
 .social-slogan h3 {
   font-weight: 700;
@@ -737,10 +878,6 @@ height: 2px;
   color: var(--text-footer);
   margin: 0;
 }
-
-/* текст д.отбиваться от карты больше, чем в родительском паддинге (там промер до иконок) - 75px, 
-потом подровнять после вставки иконок*/
-
 
 /* catalog */
 

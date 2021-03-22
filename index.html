@@ -17,33 +17,33 @@
 
 <body class="page-body">
 
-  <header class="main-header">
+  <header class="main-header bar">
 
-      <nav class="main-nav container">
+    <nav class="main-nav container">
 
-        <a class="main-logo" href="index.html">
-          <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
-        </a>
+      <a class="main-logo" href="index.html">
+        <img src="img/logo/logo-nerds.svg" width="160" height="65" alt="Логотип дизайн-студии «Нёрдс»">
+      </a>
 
-        <ul class="site-nav-list">
-          <li>
-            <a href="blank.html">Студия</a>
-          </li>
-          <li>
-            <a href="blank.html">Клиенты</a>
-          </li>
-          <li>
-            <a href="catalog.html">Магазин</a>
-          </li>
-          <li>
-            <a href="blank.html">Контакты</a>
-          </li>
-        </ul>
+      <ul class="site-nav-list">
+        <li>
+          <a href="blank.html">Студия</a>
+        </li>
+        <li>
+          <a href="blank.html">Клиенты</a>
+        </li>
+        <li>
+          <a href="catalog.html">Магазин</a>
+        </li>
+        <li>
+          <a href="blank.html">Контакты</a>
+        </li>
+      </ul>
 
-        <div class="user-nav">
-          <a class="nav-basket" href="blank.html">Корзина</a>
-        </div>
-      </nav>
+      <div class="user-nav">
+        <a class="nav-basket" href="blank.html">Корзина</a>
+      </div>
+    </nav>
 
   </header>
 
@@ -51,39 +51,36 @@
 
     <h1 class="visually-hidden">Студия «Нёрдс»</h1>
 
-    <section class="slider bar">
+    <section class="bar">
 
-      <div class="container">
+      <div class="slider container">
 
         <h2 class="visually-hidden">Наши преимущества</h2>
 
         <div class="slider-control">
-          <button type="button">1</button>
-          <button type="button">2</button>
-          <button type="button">3</button>
+          <button class="control-button-current" type="button" aria-label="1"></button>
+          <button type="button" aria-label="2"></button>
+          <button type="button" aria-label="3"></button>
         </div>
 
         <ul class="slide-list">
-          <li class="slide-current">
+          <li class="slide-1 slide-current">
             <h3>Долго, дорого,<br>скрупулезно</h3>
             <p>Математически выверенный дизайн<br>для вашего сайта или мобильного
               приложения.</p>
             <a class="button" href="blank.html">Узнать больше</a>
-            <!-- декоративное изображение -->
           </li>
-          <li class="slide-none">
-            <h3>Любим математику как никто другой</h3>
-            <p>Никакого креатива, только математические формул для расчета идеальных
+          <li class="slide-2 slide-none">
+            <h3>Любим математику<br>как никто другой</h3>
+            <p>Никакого креатива, только математические формул<br>для расчета идеальных
               пропорций.</p>
             <a class="button" href="blank.html">Узнать больше</a>
-            <!-- декоративное изображение -->
           </li>
-          <li class="slide-none">
-            <h3>Только ночь, только хардкор</h3>
-            <p>Работать днем, как все? Мы против этого. Ближе к полуночи работа только
+          <li class="slide-3 slide-none">
+            <h3>Только ночь,<br>только хардкор</h3>
+            <p>Работать днем, как все? Мы против этого.<br>Ближе к полуночи работа только
               начинается.</p>
             <a class="button" href="blank.html">Узнать больше</a>
-            <!-- декоративное изображение -->
           </li>
         </ul>
 
@@ -200,9 +197,8 @@
 
       <h2 class="visually-hidden">Контактная информация</h2>
 
-      <img class="map" src="img/map.jpg" width="1440" height="416" alt="На карте города">
-
-      <div class="container">
+      <div class="map-position container">
+        <img class="map" src="img/map.jpg" width="1440" height="416" alt="На карте города">
 
         <img class="map-marker" src="img/map-marker.png" width="231" height="190" alt="местонахождение студии">
 
@@ -212,10 +208,10 @@
           <p>тел.<a class="contacts-tel" href="tel:+78122757575">+7 (812) 275-75-75</a></p>
           <button class="button button-contacts" type="button">Напишите нам</button>
         </address>
-
       </div>
 
     </section>
+
 
     <div class="container">
 
@@ -225,13 +221,18 @@
           <h3 class="visually-hidden">Соцсети</h3>
           <ul class="social-list">
             <li class="social-item">
-              <a href="#">Вконтакте</a>
+              <a class="button social-button" href="#">
+                <img src="img/social-vk.svg" width="81" height="81" alt="Вконтакте">
+              </a>
             </li>
             <li class="social-item">
-              <a href="#">Фейсбук</a>
-            </li>
+              <a class="button social-button" href="#">
+                <img src="img/social-fb.svg" width="81" height="81" alt="Фейсбук">
+              </a>
             <li class="social-item">
-              <a href="#">Инстаграм</a>
+              <a class="button social-button" href="#">
+                <img src="img/social-insta.svg" width="81" height="81" alt="Инстаграм">
+              </a>
             </li>
           </ul>
         </div>
